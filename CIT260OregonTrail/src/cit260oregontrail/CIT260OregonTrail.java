@@ -9,6 +9,9 @@ import model.Game;
 import model.Items;
 import model.Player;
 import model.WagonPartyMembers;
+import model.Map;
+import model.Occupation;
+import model.CheckPoints;
 
 /**
  *
@@ -22,7 +25,9 @@ public class CIT260OregonTrail {
         Player player = new Player();
         Items items = new Items();
         WagonPartyMembers wagonPartyMembers = new WagonPartyMembers();
-        
+        Map map = new Map();
+        Occupation occupation = new Occupation();
+        CheckPoints checkPoints = new CheckPoints();
         
         
         player.setName("Ingrid");
@@ -41,6 +46,9 @@ public class CIT260OregonTrail {
         wagonPartyMembers.setGame(game);
         wagonPartyMembers.setHealth("Good");
         wagonPartyMembers.setName("Nombre de prueba");
+        
+        map.setRowCount (15);         
+        map.setColumnCount (25);
         
         System.out.println(game.toString() 
                          + "\n" + player.toString()
