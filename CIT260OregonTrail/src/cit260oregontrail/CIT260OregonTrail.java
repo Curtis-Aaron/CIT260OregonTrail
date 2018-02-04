@@ -49,17 +49,17 @@ public class CIT260OregonTrail {
         
         map.setRowCount (15);         
         map.setColumnCount (25);
-        map.setGame(game);
+        
         
         occupation.setName ("Carpenter");
         occupation.setMoney (800);
         occupation.setDescription("Wood Worker");
-        occupation.setGame(game);
+        
         
         checkPoints.setName ("Fort Sumter");         
         checkPoints.setCoordinate (25);         
         checkPoints.setVisited("Yes");
-        checkPoints.setMap(map);
+        
         
         
         System.out.println(game.toString() 
