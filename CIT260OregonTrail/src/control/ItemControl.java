@@ -78,5 +78,24 @@ public class ItemControl {
         }
         return true;
     }
-          
+    
+    public boolean addItemToStock(char name, int quantity){
+//            addItemToStock(name,quantity): boolean
+//            BEGIN
+//                    IF name = “”  OR quantity <= 0 THEN RETURN FALSE
+//
+//                    add the quantity to the quantity variable in the item class
+//                    RETURN TRUE
+//            END
+        Items item = new Items();
+        
+        if(quantity <= 0 || name = "" ){
+            System.out.println("Invalid Amount");
+            return false;
+        }else{
+            item.setQuantity(item.getQuantity() + quantity);
+        }
+        
+        return true;
+    }
 }

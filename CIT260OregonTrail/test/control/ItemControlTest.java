@@ -78,5 +78,45 @@ public class ItemControlTest {
         result = instance.useResource(item, quantity);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of debitMoney method, of class ItemControl.
+     */
+    @Test
+    public void testDebitMoney() {
+        System.out.println("debitMoney");
+        float totalAmount = 0.0F;
+        ItemControl instance = new ItemControl();
+        int expResult = 0;
+        int result = instance.debitMoney(totalAmount);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getMoney method, of class ItemControl.
+     */
+    @Test
+    public void testGetMoney() {
+        System.out.println("getMoney");
+        ItemControl instance = new ItemControl();
+        instance.getMoney();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setMoney method, of class ItemControl.
+     */
+    @Test
+    public void testSetMoney() {
+        System.out.println("setMoney");
+        totalAmount = null;
+        ItemControl instance = new ItemControl();
+        instance.setMoney(<error>);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
