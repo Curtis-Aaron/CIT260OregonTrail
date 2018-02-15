@@ -58,7 +58,7 @@ public class CIT260OregonTrail {
         
         checkPoints.setName ("Fort Sumter");         
         checkPoints.setCoordinate (25);         
-        checkPoints.setVisited("Yes");
+        checkPoints.setVisited(true);
         
         
         

@@ -30,4 +30,30 @@ public class ItemControl {
         return true;
     }
     
+    public boolean useResource(Items item,int quantity){
+//        useResource(item,quantity)
+//        BEGIN
+//                IF quantity <= 0 THEN PRINT “invalid quantity” RETURN FALSE
+//                IF item = “” THEN PRINT “Invalid Item” RETURN FALSE
+//
+//                Subtract QUANTITY from the ITEM
+//                RETURN TRUE
+//
+//        END
+        if(quantity <= 0) {
+            System.out.println("Invalid quantity");
+            return false;
+        }
+        if(item == null){
+            System.out.println("Invalid item");
+            return false;
+        }
+        
+        item.setQuantity(item.getQuantity() - quantity);
+        
+        return true;
+
+        
+    }
+    
 }

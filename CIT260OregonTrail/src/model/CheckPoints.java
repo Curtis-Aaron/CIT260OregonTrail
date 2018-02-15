@@ -16,14 +16,41 @@ public class CheckPoints implements Serializable{
 
     private String name;
     private int coordinate;
-    private String visited; 
-    
+    private boolean visited; 
+
+    public CheckPoints() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(int coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + this.coordinate;
-        hash = 29 * hash + Objects.hashCode(this.visited);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + this.coordinate;
+        hash = 89 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
@@ -42,10 +69,10 @@ public class CheckPoints implements Serializable{
         if (this.coordinate != other.coordinate) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (this.visited != other.visited) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return true;
@@ -56,33 +83,5 @@ public class CheckPoints implements Serializable{
         return "CheckPoints{" + "name=" + name + ", coordinate=" + coordinate + ", visited=" + visited + '}';
     }
     
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(int coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    public String getVisited() {
-        return visited;
-    }
-
-    public void setVisited(String visited) {
-        this.visited = visited;
-    }
-    
-    
-
- public CheckPoints() {
-    }
 }
 
