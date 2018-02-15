@@ -56,4 +56,10 @@ public class ItemControl {
         
     }
     
+    public int debitMoney(totalAmount){
+        totalAmount;
+        if(totalAmount <= 0 || )
+        int amount = public getMoney();
+        return public setMoney(totalAmount);
+    
 }
