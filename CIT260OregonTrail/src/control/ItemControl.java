@@ -7,6 +7,7 @@ package control;
 
 import model.Game;
 import model.Items;
+import model.Occupation;
 
 /**
  *
@@ -56,10 +57,26 @@ public class ItemControl {
         
     }
     
-    public int debitMoney(totalAmount){
-        totalAmount;
-        if(totalAmount <= 0 || )
-        int amount = public getMoney();
-        return public setMoney(totalAmount);
-    
+    public boolean debitMoney(int totalAmount){
+//                debitMoney(totalAmount): boolean
+//          BEGIN
+//                  totalAmount = quantity * cost
+//                  IF totalAmount <= 0 THEN RETURN FALSE
+//
+//                  Subtract totalAmount from getMoney, and Return to setMoney
+//
+//          END
+        Occupation occupation = new Occupation(); 
+        Items item = new Items();
+        
+        totalAmount = item.getQuantity() * item.getCost();
+        if(totalAmount <= 0){
+            System.out.println("Invalid Amount");
+            return false;
+        }else {
+            occupation.setMoney(occupation.getMoney()- totalAmount);
+        }
+        return true;
+    }
+          
 }
