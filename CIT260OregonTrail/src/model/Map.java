@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.io.Serializable;
 public class Map implements Serializable{
     private int rowCount;
     private int columnCount;
+    private Game game;
 
     public Map() {
     }
@@ -36,11 +38,20 @@ public class Map implements Serializable{
         this.columnCount = columnCount;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + this.rowCount;
-        hash = 37 * hash + this.columnCount;
+        int hash = 7;
+        hash = 17 * hash + this.rowCount;
+        hash = 17 * hash + this.columnCount;
+        hash = 17 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -62,12 +73,15 @@ public class Map implements Serializable{
         if (this.columnCount != other.columnCount) {
             return false;
         }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", game=" + game + '}';
     }
     
     

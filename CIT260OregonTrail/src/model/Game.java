@@ -22,7 +22,10 @@ public class Game implements Serializable{
     private int foodRations;
     private Player player;
     private ArrayList<Items> items;
-    private WagonPartyMembers[] partyMemberses;
+    private WagonPartyMembers[] partyMembers;
+    private Map map;
+    private Occupation occupation;
+    private CheckPoints checkPoints;
 
     public Game() {
     }
@@ -75,24 +78,51 @@ public class Game implements Serializable{
         this.items = items;
     }
 
-    public WagonPartyMembers[] getPartyMemberses() {
-        return partyMemberses;
+    public WagonPartyMembers[] getPartyMembers() {
+        return partyMembers;
     }
 
-    public void setPartyMemberses(WagonPartyMembers[] partyMemberses) {
-        this.partyMemberses = partyMemberses;
+    public void setPartyMembers(WagonPartyMembers[] partyMembers) {
+        this.partyMembers = partyMembers;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Occupation getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(Occupation occupation) {
+        this.occupation = occupation;
+    }
+
+    public CheckPoints getCheckPoints() {
+        return checkPoints;
+    }
+
+    public void setCheckPoints(CheckPoints checkPoints) {
+        this.checkPoints = checkPoints;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + (int) (this.score ^ (this.score >>> 32));
-        hash = 37 * hash + this.numberOfPeople;
-        hash = 37 * hash + this.pace;
-        hash = 37 * hash + this.foodRations;
-        hash = 37 * hash + Objects.hashCode(this.player);
-        hash = 37 * hash + Objects.hashCode(this.items);
-        hash = 37 * hash + Arrays.deepHashCode(this.partyMemberses);
+        int hash = 5;
+        hash = 67 * hash + (int) (this.score ^ (this.score >>> 32));
+        hash = 67 * hash + this.numberOfPeople;
+        hash = 67 * hash + this.pace;
+        hash = 67 * hash + this.foodRations;
+        hash = 67 * hash + Objects.hashCode(this.player);
+        hash = 67 * hash + Objects.hashCode(this.items);
+        hash = 67 * hash + Arrays.deepHashCode(this.partyMembers);
+        hash = 67 * hash + Objects.hashCode(this.map);
+        hash = 67 * hash + Objects.hashCode(this.occupation);
+        hash = 67 * hash + Objects.hashCode(this.checkPoints);
         return hash;
     }
 
@@ -126,7 +156,16 @@ public class Game implements Serializable{
         if (!Objects.equals(this.items, other.items)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.partyMemberses, other.partyMemberses)) {
+        if (!Arrays.deepEquals(this.partyMembers, other.partyMembers)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Objects.equals(this.occupation, other.occupation)) {
+            return false;
+        }
+        if (!Objects.equals(this.checkPoints, other.checkPoints)) {
             return false;
         }
         return true;
@@ -134,7 +173,8 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "score=" + score + ", numberOfPeople=" + numberOfPeople + ", pace=" + pace + ", foodRations=" + foodRations + ", player=" + player + ", items=" + items + ", partyMemberses=" + partyMemberses + '}';
+        return "Game{" + "score=" + score + ", numberOfPeople=" + numberOfPeople + ", pace=" + pace + ", foodRations=" + foodRations + ", player=" + player + ", items=" + items + ", partyMembers=" + partyMembers + ", map=" + map + ", occupation=" + occupation + ", checkPoints=" + checkPoints + '}';
     }
-    
 }
+
+   
