@@ -22,8 +22,17 @@ public class ItemControl {
 //                add the quantity to the quantity variable in the item class
 //                RETURN TRUE
 //        END
-
-        if(name.equals("") || quantity <= 0) return false;
+        
+        if(quantity <= 0){
+           System.out.println("Invalid name");
+           return false;
+       }
+       
+       if(name.length() <= 1) {
+           System.out.println("Error: The name must contain at least 2 letters");
+           return false;
+           
+       }
         //doesn't an if statement automatically return false if the statements do not verify as true?
         Items item = new Items();        
         item.setQuantity(quantity);
