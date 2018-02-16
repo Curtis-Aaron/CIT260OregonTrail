@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author user
  */
 public class Occupation implements Serializable{
-   private int money;
+   private float money;
    private String name;
    private String description;
    private Game game;
@@ -21,11 +21,11 @@ public class Occupation implements Serializable{
     public Occupation() {
     }
 
-    public int getMoney() {
+    public float getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(float money) {
         this.money = money;
     }
 
@@ -55,11 +55,11 @@ public class Occupation implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + this.money;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.description);
-        hash = 53 * hash + Objects.hashCode(this.game);
+        int hash = 5;
+        hash = 47 * hash + Float.floatToIntBits(this.money);
+        hash = 47 * hash + Objects.hashCode(this.name);
+        hash = 47 * hash + Objects.hashCode(this.description);
+        hash = 47 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -75,7 +75,7 @@ public class Occupation implements Serializable{
             return false;
         }
         final Occupation other = (Occupation) obj;
-        if (this.money != other.money) {
+        if (Float.floatToIntBits(this.money) != Float.floatToIntBits(other.money)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -94,6 +94,8 @@ public class Occupation implements Serializable{
     public String toString() {
         return "Occupation{" + "money=" + money + ", name=" + name + ", description=" + description + ", game=" + game + '}';
     }
-   
-
+    
+    
+    
 }
+
