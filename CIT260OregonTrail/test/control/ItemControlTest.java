@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -24,12 +24,43 @@ public class ItemControlTest {
     @Test
     public void testAddItemToStock() {
         System.out.println("addItemToStock");
-        String name = "Govert";
-        int quantity = 500;
+        System.out.println("----------------------------------");
+        System.out.println("Test 1");
+        String name = "Oxen";
+        int quantity = 10;
         ItemControl instance = new ItemControl();
         boolean expResult = true;
         boolean result = instance.addItemToStock(name, quantity);
         assertEquals(expResult, result);
+        
+        System.out.println("----------------------------------");
+        System.out.println("Test 2");
+        String B;
+        name = "B";
+        quantity = 8;
+        instance = new ItemControl();
+        expResult = false;
+        result = instance.addItemToStock(name, quantity);
+        assertEquals(expResult, result);
+        
+        System.out.println("----------------------------------");
+        System.out.println("Test 3");
+        name = "Food Pund";
+        quantity = -2;
+        instance = new ItemControl();
+        expResult = false;
+        result = instance.addItemToStock(name, quantity);
+        assertEquals(expResult, result);
+        
+        System.out.println("----------------------------------");
+        System.out.println("Test 4");
+        name = "Clothes";
+        quantity = 1;
+        instance = new ItemControl();
+        expResult = true;
+        result = instance.addItemToStock(name, quantity);
+        assertEquals(expResult, result);
+        
     }
 
     /**
@@ -87,7 +118,7 @@ public class ItemControlTest {
         System.out.println("debitMoney");
         float totalAmount = 800.0F;
         ItemControl instance = new ItemControl();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.debitMoney(totalAmount);
         assertEquals(expResult, result);
         
