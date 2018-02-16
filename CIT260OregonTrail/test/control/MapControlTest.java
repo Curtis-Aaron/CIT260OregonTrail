@@ -41,5 +41,21 @@ public class MapControlTest {
         result = instance.moveToNewLocation(checkPoint);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of calcGameProgress method, of class MapControl.
+     */
+    @Test
+    public void testCalcGameProgress() {
+        System.out.println("calcGameProgress");
+        int distanceTraveled = 0;
+        int percentOfGame = 0;
+        MapControl instance = new MapControl();
+        int expResult = 0;
+        int result = instance.calcGameProgress(distanceTraveled, percentOfGame);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
