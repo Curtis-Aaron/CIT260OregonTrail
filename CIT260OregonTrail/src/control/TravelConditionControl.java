@@ -22,7 +22,7 @@ public class TravelConditionControl {
 //  END
 
     changeddate = new Date;
-    changeddate.setDate();
+    changeddate.TravelConditions.setDate();
     System.out.println(changeddate);
     }
 }
