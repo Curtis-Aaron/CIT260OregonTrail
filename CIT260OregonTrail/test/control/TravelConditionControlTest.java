@@ -5,14 +5,15 @@
  */
 package control;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import model.TravelConditions;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author FELIPE
+ * @author user
  */
 public class TravelConditionControlTest {
     
@@ -23,16 +24,25 @@ public class TravelConditionControlTest {
      * Test of changeDate method, of class TravelConditionControl.
      */
     @Test
-    public void testChangeDate() {
+    public void testChangeDate() throws ParseException {
         System.out.println("changeDate");
-        TravelConditions date = null;
-        String changeddate = "";
+        System.out.println("-------------------------------------");
+        System.out.println("Test 1");
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        Date newDate = fmt.parse("1985-01-01");
         TravelConditionControl instance = new TravelConditionControl();
-        Date expResult = null;
-        Date result = instance.changeDate(date, changeddate);
+        boolean expResult = false;
+        boolean result = instance.changeDate(newDate);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        System.out.println("-------------------------------------");
+        System.out.println("Test 2");
+        newDate = fmt.parse("1848-01-01");
+        instance = new TravelConditionControl();
+        expResult = true;
+        result = instance.changeDate(newDate);
+        assertEquals(expResult, result);
+        
     }
     
 }

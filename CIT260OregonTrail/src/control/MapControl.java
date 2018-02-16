@@ -42,7 +42,7 @@ public class MapControl {
     //   RETURN “The value must not be < 0”
     //       IF distanceTraveled is greater than 2000 miles then display an error message 
     //   RETURN “The value must <= 2000 miles”
-    //       IF distanceTraveled is Null then display an error message 
+    //       IF distanceTraveled is 0 then display an error message 
     //   RETURN “Distance Traveled is required”
 
     //   percentOfGame = distanceTraveled / 2000
@@ -58,7 +58,7 @@ public class MapControl {
             System.out.println("The value must <= 2000 miles");
             return -1;
         }
-        if (distanceTraveled == null){
+        if (distanceTraveled == 0){
             System.out.println("Distance Traveled is required");
             return -1;        
         }
