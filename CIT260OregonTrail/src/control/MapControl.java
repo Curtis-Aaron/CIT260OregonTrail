@@ -6,6 +6,7 @@
 package control;
 
 import model.CheckPoints;
+import model.TravelConditions;
 
 /**
  *
@@ -34,4 +35,37 @@ public class MapControl {
         return true;
 
     }
+    public int calcGameProgress ( int distanceTraveled, int percentOfGame){
+    //   calcGameProgress(distanceTraveled, game): int
+    //   BEGIN
+    //       IF distanceTraveled is less than zero then display an error message 
+    //   RETURN “The value must not be < 0”
+    //       IF distanceTraveled is greater than 2000 miles then display an error message 
+    //   RETURN “The value must <= 2000 miles”
+    //       IF distanceTraveled is Null then display an error message 
+    //   RETURN “Distance Traveled is required”
+
+    //   percentOfGame = distanceTraveled / 2000
+    //   percentOfGame = percentOfGame * 100
+    //           RETURN percentOfGame
+    //   END
+    
+        if (distanceTraveled < 0) {
+            System.out.println("The value must not be < 0");
+            return -1;
+            }
+        if (distanceTraveled > 2000){
+            System.out.println("The value must <= 2000 miles");
+            return -1;
+        }
+        if (distanceTraveled == null){
+            System.out.println("Distance Traveled is required");
+            return -1;        
+        }
+        percentOfGame = distanceTraveled / 2000;
+        percentOfGame = percentOfGame * 100;
+        
+        return percentOfGame;
+    }
 }
+
