@@ -49,11 +49,10 @@ public class MapControlTest {
     public void testCalcGameProgress() {
         System.out.println("calcGameProgress");
         int distanceTraveled = 0;
-        int percentOfGame = 0;
         MapControl instance = new MapControl();
-        int expResult = -1;
-        int result = instance.calcGameProgress(distanceTraveled, percentOfGame);
-        assertEquals(expResult, result);
+        float expResult = 0.0F;
+        float result = instance.calcGameProgress(distanceTraveled);
+        assertEquals(expResult, result, 0.0);
     }
     
 }
