@@ -6,6 +6,8 @@
 package control;
 
 import model.CheckPoints;
+import model.Game;
+import model.Map;
 import model.TravelConditions;
 
 /**
@@ -67,5 +69,31 @@ public class MapControl {
         
         return percentOfGame;
     }
-}
+    public boolean createMap (int row, int column, Game game){
+      
+//        Map(rowCount, columnCount): 
+//
+//        BEGIN
+//                IF rowCount = “”  OR columnCount <= 0 THEN RETURN FALSE
+//
+//                IF rowCount = “”  OR columnCount >= 0 && <= 4 THEN RETURN TRUE
+//
+//        END
+
+    //
+      if ((row <= 0 || row >= 5 ) || (column <= 0 || column >= 5 )){
+            System.out.println("The row or column must not be <= 0");
+            return false;
+        }
+        Map map = new Map(); 
+        map.setColumnCount(column);
+        map.setRowCount(row);
+        game.setMap(map);
+       
+         return true;
+ 
+    }
+}       
+
+
 
