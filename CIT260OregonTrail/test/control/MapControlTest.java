@@ -32,7 +32,7 @@ public class MapControlTest {
         boolean expResult = false;
         boolean result = instance.moveToNewLocation(checkPoint);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        
         
         System.out.println("----------------------------------");
         System.out.println("Test 2");
@@ -47,12 +47,48 @@ public class MapControlTest {
      */
     @Test
     public void testCalcGameProgress() {
+        System.out.println("----------------------------------");
         System.out.println("calcGameProgress");
-        int distanceTraveled = 0;
+        System.out.println("----------------------------------");
+        System.out.println("Test 1");
+        int distanceTraveled = 55;
         MapControl instance = new MapControl();
-        float expResult = 0.0F;
+        float expResult = 2.75F;
         float result = instance.calcGameProgress(distanceTraveled);
+        assertEquals(expResult, result, 2.75);
+
+        System.out.println("----------------------------------");
+        System.out.println("Test 2");
+        distanceTraveled = -1;
+        expResult = -1;
+        result = instance.calcGameProgress(distanceTraveled);
         assertEquals(expResult, result, 0.0);
+    
+        System.out.println("----------------------------------");
+        System.out.println("Test 3");
+        distanceTraveled = 2280;
+        expResult = -1;
+        result = instance.calcGameProgress(distanceTraveled);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("----------------------------------");
+        System.out.println("Test 4");
+        distanceTraveled = 0;
+        expResult = -1;
+        result = instance.calcGameProgress(distanceTraveled);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("----------------------------------");
+        System.out.println("Test 5");
+        distanceTraveled = 2000;
+        expResult = 100F;
+        result = instance.calcGameProgress(distanceTraveled);
+        assertEquals(expResult, result, 100);
     }
     
+
+
+    /**
+     * Test of calcGameProgress method, of class MapControl.
+     */
 }
