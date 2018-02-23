@@ -66,7 +66,16 @@ public class StartProgramView {
 //    RETURN inputs 
         
         String[] inputs = new String[1];
-        System.out.println("Game Description");
+        System.out.println("\n Welcome to the experience of your life with The Oregon Trail game!" 
+                    + "\n Try taking a journey by covered wagon across 2000 miles of plains, rivers, and mountains. Try! "
+                    + "\n On the plains, will you slosh your oxen through mud and water-filled ruts or will you plod through dust six inches deep?"
+                    + "\n How will you cross the rivers? If you have money, you might take a ferry(if there is a ferry). Or, you can ford the river and "
+                    + "\n hope you and your wagon aren’t swallowed alive! What about supplies? Well, if you’re low on food you can hunt."
+                    + "\n You might get a buffalo...you might. And there are bear in the mountains." 
+                    + "\n At the Dalles, you can try navigating the Columbia River, but if running the rapids with a makeshift raft makes you queasy, "
+                    + "\n better take the Barlow Road. If for some reason you don’t survive -- your wagon burns, or thieves steal your oxen, "
+                    + "\n or you run out of provisions, or you die of Cholera -- don’t give up! Try again...and again… until your name is up with the "
+                    + "\n others on The Oregon Top Ten.");
         
         boolean valid = false;
         
