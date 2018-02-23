@@ -64,7 +64,7 @@ public class StartProgramView {
 //    RETURN inputs 
         
         String[] inputs = new String[1];
-        System.out.println("Esta parte es de Aaron");
+        System.out.println("This game will be amazing!!!");
         
         boolean valid = false;
         

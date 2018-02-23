@@ -5,10 +5,86 @@
  */
 package view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Culpa De Felipe
  */
 public class MainMenuView {
+    
+    public MainMenuView(){
+//            display() {
+//            endView = false
+//           DO
+//            inputs = getInputs()
+//            if (no input first input is Q
+//            RETURN
+//            endView = doAction(inputs)
+//            WHILE endView != true
+//            }
+            boolean endOfView = false;
+            do{
+            String[] inputs = this.getInputs();
+            if(inputs.length == 0 || "Q".equals(inputs[0])) 
+                return;
+
+            endOfView = doAction(inputs);
+            }
+            while(!endOfView);
+    }
+
+    private boolean doAction(String[] inputs) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+//          To change body of generated methods, choose Tools | Templates.
+
+    }
+
+    private String[] getInputs() {
+//            getInputs(): String[] {
+//
+//             inputs = new String array whose length = no. of inputs
+//             Display the instructions
+//
+//            valid = false
+//            WHILE valid == false (while input value is not valid)
+//
+//            Display the prompt message
+//            Get the value entered from the keyboard
+//            Trim off leading and trailing blanks from the value
+//            IF length of the value < 1 then
+//            Display "You must enter a value.”
+//            Continue
+//            ENDIF
+//            Assign value to the next position in the inputs array
+//           valid = true
+//            ENDWHILE
+//
+//            RETURN inputs
+//            }
+            String[] inputs = new String[1];
+        System.out.println("This game will be amazing!!!");
+        
+        boolean valid = false;
+        
+        while(!valid){
+            System.out.println("Pick a Menu Option"+"\n"+"1. Travel The Trail"+"\n"+"2. Learn about the Trail"+"\n"
+                    +"3. See the Oregon Top Ten"+"\n"+"5. Choose Management Options"+"\n"+"Q. Quit" );
+            Scanner sc = new Scanner(System.in);
+            String value = sc.nextLine();
+            value = value.trim();
+            
+            if(value.length() < 1){
+                System.out.println("You must enter a non-blank value");
+                continue;
+            }
+            
+            inputs[0] = value.toUpperCase();
+            valid = true;
+        }
+        
+        return inputs;
+        
+    }
     
 }
