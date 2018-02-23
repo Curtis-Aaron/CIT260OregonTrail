@@ -6,6 +6,7 @@
 package view;
 
 import java.util.Scanner;
+import model.Player;
 
 /**
  *
@@ -103,7 +104,20 @@ public class StartProgramView {
 //        mainMenuView.displayMainMenuView()
 //        RETURN true
 //        }
+        String playersName = inputs[0];
+        Player player = this.savePlayer(playersName);
         
+        if (player == null){
+            System.out.println("Could not create the player. Enter a different name.");    
+            return false;
+        }
+        
+            
         return true;
+        
+    }
+
+    private Player savePlayer(String playersName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
