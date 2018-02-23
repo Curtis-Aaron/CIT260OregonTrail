@@ -29,11 +29,11 @@ public class MainMenuView {
 //            }
             boolean endOfView = false;
             do{
-            String[] inputs = this.getInputs();
-            if(inputs.length == 0 || "Q".equals(inputs[0])) 
-                return;
+                String[] inputs = this.getInputs();
+                if(inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) 
+                    return;
 
-            endOfView = doAction(inputs);
+                endOfView = doAction(inputs);
             }
             while(!endOfView);
     }
@@ -115,7 +115,7 @@ public class MainMenuView {
                 continue;
             }
             
-            inputs[0] = value.toUpperCase();
+            inputs[0] = value;
             valid = true;
         }
         
