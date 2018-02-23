@@ -38,11 +38,40 @@ public class MainMenuView {
             while(!endOfView);
     }
 
-    private boolean doAction(String[] inputs) {
-        System.out.println("**** MainMenuView goAction method Run ***");
-        return true;
+    public boolean doAction(String[] inputs) {
+        
+//                doAction(inputs): boolean {
+//                  menuItem = first element in inputs array
+//                  convert menuItem to upper case
+//                  SWITCH menuItem
+//                      “N”: startNewGame()
+//                      “R”: restartGame()
+//                      “H”: getHelp()
+//                      “E”: RETURN true
+//                      DEFAULT: DISPLAY “Invalid menu item.”
+//                   ENDSWITCH
+//                   RETURN false
+//                }
+//  MainMenuView mainMenuView = new MainMenuView();
+//        mainMenuView.display();
+//              System.out.println("**** MainMenuView goAction method Run ***");
+//              return true;
 
+        String menuItem = inputs[0].toUpperCase();
+        switch (menuItem) {
+            case 1:  startNewGame();
+                     break;
+            case 2:  restartGame();
+                     break;
+            case 3:  getHelp();
+                     break;
+            case 4:  return true;
+                    
+            default: System.out.println("Invalid menu item.");
+                     break;
     }
+        return false;
+}
 
     private String[] getInputs() {
 //            getInputs(): String[] {
@@ -75,7 +104,7 @@ public class MainMenuView {
                     + "\n1. Travel The Trail"
                     + "\n2. Learn about the Trail"
                     + "\n3. See the Oregon Top Ten"
-                    + "\n5. Choose Management Options"
+                    + "\n4. Choose Management Options"
                     + "\nQ. Quit" );
             Scanner sc = new Scanner(System.in);
             String value = sc.nextLine();
@@ -92,6 +121,19 @@ public class MainMenuView {
         
         return inputs;
         
+    }
+
+    private void startNewGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void restartGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void getHelp() {
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.display();
     }
     
 }
