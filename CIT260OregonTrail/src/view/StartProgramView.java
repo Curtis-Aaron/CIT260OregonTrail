@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.GameControl;
 import java.util.Scanner;
 import model.Player;
 
@@ -65,7 +66,7 @@ public class StartProgramView {
 //    RETURN inputs 
         
         String[] inputs = new String[1];
-        System.out.println("This game will be amazing!!!");
+        System.out.println("Game Description");
         
         boolean valid = false;
         
@@ -105,19 +106,25 @@ public class StartProgramView {
 //        RETURN true
 //        }
         String playersName = inputs[0];
-        Player player = this.savePlayer(playersName);
+        Player player = GameControl.savePlayer(playersName);
         
         if (player == null){
-            System.out.println("Could not create the player. Enter a different name.");    
+            System.out.println("Could not create the player."
+                             + "\nEnter a different name.");    
             return false;
         }
         
+        System.out.println("\n=================================================" 
+                          + "\nWelcome to the game " + playersName 
+                          + "\nWe hope you have a lot of fun!" 
+                          + "\n=================================================");
+        
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.display();
             
         return true;
         
     }
 
-    private Player savePlayer(String playersName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }

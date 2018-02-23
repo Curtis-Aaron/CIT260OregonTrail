@@ -12,8 +12,12 @@ import java.util.Scanner;
  * @author Culpa De Felipe
  */
 public class MainMenuView {
+
+    public MainMenuView() {
+    }
     
-    public MainMenuView(){
+    
+    public void display(){
 //            display() {
 //            endView = false
 //           DO
@@ -35,8 +39,8 @@ public class MainMenuView {
     }
 
     private boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//          To change body of generated methods, choose Tools | Templates.
+        System.out.println("**** MainMenuView goAction method Run ***");
+        return true;
 
     }
 
@@ -68,8 +72,12 @@ public class MainMenuView {
         boolean valid = false;
         
         while(!valid){
-            System.out.println("Pick a Menu Option"+"\n"+"1. Travel The Trail"+"\n"+"2. Learn about the Trail"+"\n"
-                    +"3. See the Oregon Top Ten"+"\n"+"5. Choose Management Options"+"\n"+"Q. Quit" );
+            System.out.println("Pick a Menu Option"
+                    + "\n1. Travel The Trail"
+                    + "\n2. Learn about the Trail"
+                    + "\n3. See the Oregon Top Ten"
+                    + "\n5. Choose Management Options"
+                    + "\nQ. Quit" );
             Scanner sc = new Scanner(System.in);
             String value = sc.nextLine();
             value = value.trim();
