@@ -11,8 +11,7 @@ package view;
  */
 public class HelpMenuView {
 
-
-    public void display(){
+   public void display(){
 //            display() {
 //            endView = false
 //           DO
