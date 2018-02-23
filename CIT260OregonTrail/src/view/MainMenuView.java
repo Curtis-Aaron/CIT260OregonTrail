@@ -67,7 +67,6 @@ public class MainMenuView {
 //            RETURN inputs
 //            }
             String[] inputs = new String[1];
-        System.out.println("This game will be amazing!!!");
         
         boolean valid = false;
         
