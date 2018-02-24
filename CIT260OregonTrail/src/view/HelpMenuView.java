@@ -55,7 +55,7 @@ public class HelpMenuView {
             value = value.trim();
             
             if(value.lenght()<1){
-                System.out.println("You have to decide between oneof the options");
+                System.out.println("You have to decide between one of the options");
                 continue;
             }
             inputs[0] = value;
