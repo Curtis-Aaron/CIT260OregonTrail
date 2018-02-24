@@ -45,20 +45,16 @@ public class HelpMenuView {
         
         switch (helpMenuItem){
             case "1": System.out.println("Frequently Questions");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
+                    this.frequentQuestions();
                     break;
             case "2": System.out.println("About the game");
                     if (true){
                         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                     }
                     break;
-            case "3": System.out.println("General Information");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
-                    break;
+            case "3": 
+                System.out.println("General Information");
+                break;
             case "4": System.out.println("When to buy");
                     if (true){
                         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -69,9 +65,14 @@ public class HelpMenuView {
             default:return false;
             
         }
-        HelpMenuView helpMenuView = new HelpMenuView();
-            helpMenuView.display();
+        
+        
+        return true;
     
+    }
+
+    private void frequentQuestions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

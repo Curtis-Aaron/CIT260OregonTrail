@@ -123,16 +123,16 @@ public class MainMenuView {
             valid = true;
         }
         
-        return inputs;
+        return inputs;        
         
     }
 
     private void startNewGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Start new game run ***");
     }
-
+    
     private void restartGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Restart game run ***");
     }
 
     private void getHelp() {
