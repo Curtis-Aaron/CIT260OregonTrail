@@ -42,7 +42,7 @@ public class HelpMenuView {
         
         while (!valid){
             System.out.println("\n\n Pick a Menu Option"
-                             + "\n1.Frequently Questions"
+                             + "\n1. Frequently Questions"
                              + "\n2. About the Game"
                              + "\n3. General Information"
                              + "\n4. When to Buy"
