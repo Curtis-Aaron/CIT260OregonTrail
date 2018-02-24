@@ -59,13 +59,17 @@ public class MainMenuView {
 
         String menuItem = inputs[0].toUpperCase();
         switch (menuItem) {
-            case 1:  startNewGame();
-                     break;
-            case 2:  restartGame();
-                     break;
-            case 3:  getHelp();
-                     break;
-            case 4:  return true;
+            case "1":  
+                this.startNewGame();
+                break;
+            case "2":  
+                this.restartGame();
+                break;
+            case "3":  
+                this.getHelp();
+                break;
+            case "4":  
+                return true;
                     
             default: System.out.println("Invalid menu item.");
                      break;
