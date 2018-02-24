@@ -36,8 +36,40 @@ public class HelpMenuView {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean doAction(String[] inputs) {
+        
+        String helpMenuItem = inputs[0].toUpperCase();
+        
+        switch (helpMenuItem){
+            case 1: System.out.println("Frequently Questions");
+                    if (true){
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    }
+                    break;
+            case 2: System.out.println("About the game");
+                    if (true){
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    }
+                    break;
+            case 3: System.out.println("General Information");
+                    if (true){
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    }
+                    break;
+            case 4: System.out.println("When to buy");
+                    if (true){
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                    }
+                                        break;
+            case 'Q': return true;
+                    break;
+            default:return false;
+            
+        }
+        HelpMenuView helpMenuView = new HelpMenuView();
+            helpMenuView.display();
+        
+    }
     }
     
 }
