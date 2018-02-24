@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-
+import java.util.Scanner;
 /**
  *
  * @author Culpa De Felipe
@@ -36,25 +36,23 @@ public class HelpMenuView {
     }
 
     private String[] getInputs() {
-//        System.out.println("getInputs HelpMenuView");
-//        String[] prueba = new String[1];
-//        prueba[0] = "Que pasa viejo?";
-//        return prueba;
         
+        String[] inputs = new String[1];
         boolean valid = false;
         
         while (!valid){
-            System.out.printIn("Frequently Questions"
-                    + "\n1. About the Game"
-                    + "\n2. General Information"
-                    + "\n3. When to Buy"
-                    + "\nQ. Quit");
+            System.out.println("\n\n Pick a Menu Option"
+                             + "\n1.Frequently Questions"
+                             + "\n2. About the Game"
+                             + "\n3. General Information"
+                             + "\n4. When to Buy"
+                             + "\nQ. Quit");
         
-            Scanner Sc = new Scanner(System.in);
-            String value = Sc.nextLine();
+            Scanner sc = new Scanner(System.in);
+            String value = sc.nextLine();
             value = value.trim();
             
-            if(value.lenght()<1){
+            if(value.length() < 1){
                 System.out.println("You have to decide between one of the options");
                 continue;
             }
@@ -82,10 +80,10 @@ public class HelpMenuView {
             case "4": 
                     this.whenToBuy();
                     break;
-            case "Q": return true;
-                    
-            default:return false;
-            
+            case "Q": 
+                return true;
+            default:
+                return true;
         }
 
         return true;

@@ -98,16 +98,15 @@ public class MainMenuView {
 //
 //            RETURN inputs
 //            }
-            String[] inputs = new String[1];
-        
+        String[] inputs = new String[1];
         boolean valid = false;
         
         while(!valid){
             System.out.println("Pick a Menu Option"
-                    + "\n1. Start New Game"
-                    + "\n2. Restart Game"
-                    + "\n3. Get Help"
-                    + "\nQ. Quit" );
+                            + "\n1. Start New Game"
+                            + "\n2. Restart Game"
+                            + "\n3. Get Help"
+                            + "\nQ. Quit" );
             Scanner sc = new Scanner(System.in);
             String value = sc.nextLine();
             value = value.trim();
@@ -136,7 +135,6 @@ public class MainMenuView {
         
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
-        
     }
     
     private void restartGame() {
@@ -146,7 +144,6 @@ public class MainMenuView {
 //        }
         RestartGameView restartGameView = new RestartGameView();
         restartGameView.display();
-        
     }
 
     private void getHelp() {
