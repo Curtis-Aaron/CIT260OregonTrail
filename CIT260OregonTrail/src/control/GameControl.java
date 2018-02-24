@@ -6,6 +6,7 @@
 package control;
 
 import cit260oregontrail.CIT260OregonTrail;
+import model.Game;
 import model.Player;
 
 /**
@@ -34,6 +35,11 @@ public class GameControl {
         CIT260OregonTrail.setPlayer(player);
         
         return player;
+    }
+
+    public static Game createNewGame(Player player) {
+        System.out.println("*** createGame run ***");
+        return new Game();
     }
     
 }

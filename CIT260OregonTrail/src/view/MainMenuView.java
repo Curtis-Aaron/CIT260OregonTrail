@@ -5,6 +5,8 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -128,11 +130,25 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("Start new game run ***");
+//        startNewGame(): void {
+//            Create a new Game
+//            gameMenuView = create a new GameMenuView object
+//            gameMenuView.displayGameMenuView();
+//        }
+        
+        GameControl.createNewGame(CIT260OregonTrail.getPlayer());
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+        
     }
     
     private void restartGame() {
-        System.out.println("Restart game run ***");
+//        restartNewGame(): void {
+//            startExistingGameView = Create a new StartExistingGameView
+//            startExistingGameView.displayStartExistingGameView();
+//        }
+        
     }
 
     private void getHelp() {
