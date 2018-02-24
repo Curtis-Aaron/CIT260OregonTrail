@@ -59,12 +59,12 @@ public class HelpMenuView {
             case "4": 
                     this.whenToBuy();
                     break;
-            case "Q": 
-                return true;
-            default:
-                return false;
+            case "Q": return true;
+                    
+            default:return false;
+            
         }
-        
+
         return true;
     }
 
