@@ -36,7 +36,10 @@ public class HelpMenuView {
     }
 
     private String[] getInputs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("getInputs HelpMenuView");
+        String[] prueba = new String[1];
+        prueba[0] = "Que pasa viejo?";
+        return prueba;
     }
 
     public boolean doAction(String[] inputs) {
@@ -44,35 +47,42 @@ public class HelpMenuView {
         String helpMenuItem = inputs[0].toUpperCase();
         
         switch (helpMenuItem){
-            case "1": System.out.println("Frequently Questions");
-                    this.frequentQuestions();
+            case "1": 
+                    this.frequentlyQuestions();
                     break;
-            case "2": System.out.println("About the game");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
+            case "2": 
+                    this.aboutTheGame();
                     break;
             case "3": 
-                System.out.println("General Information");
-                break;
-            case "4": System.out.println("When to buy");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
-                                        break;
+                    this.generalInformation();
+                    break;
+            case "4": 
+                    this.whenToBuy();
+                    break;
             case "Q": return true;
                     
             default:return false;
             
         }
-        
-        
-        return true;
-    
+        HelpMenuView helpMenuView = new HelpMenuView();
+            helpMenuView.display();
+            return true;
     }
 
-    private void frequentQuestions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void frequentlyQuestions() {
+        System.out.println("Frequently Questions");
+    }
+
+    private void aboutTheGame() {
+        System.out.println("About the game");
+    }
+
+    private void generalInformation() {
+        System.out.println("General Information");
+    }
+
+    private void whenToBuy() {
+        System.out.println("When to buy");
     }
     
 }
