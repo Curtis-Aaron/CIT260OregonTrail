@@ -10,6 +10,9 @@ package view;
  * @author Culpa De Felipe
  */
 public class HelpMenuView {
+    
+    public HelpMenuView() {
+    }
 
    public void display(){
 //            display() {
@@ -69,4 +72,6 @@ public class HelpMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
             helpMenuView.display();
     
+    }
     
+}
