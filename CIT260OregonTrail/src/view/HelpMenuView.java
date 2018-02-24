@@ -36,10 +36,33 @@ public class HelpMenuView {
     }
 
     private String[] getInputs() {
-        System.out.println("getInputs HelpMenuView");
-        String[] prueba = new String[1];
-        prueba[0] = "Que pasa viejo?";
-        return prueba;
+//        System.out.println("getInputs HelpMenuView");
+//        String[] prueba = new String[1];
+//        prueba[0] = "Que pasa viejo?";
+//        return prueba;
+        
+        boolean valid = false;
+        
+        while (!valid){
+            System.out.printIn("Frequently Questions"
+                    + "\n1. About the Game"
+                    + "\n2. General Information"
+                    + "\n3. When to Buy"
+                    + "\nQ. Quit");
+        
+            Scanner Sc = new Scanner(System.in);
+            String value = Sc.nextLine();
+            value = value.trim();
+            
+            if(value.lenght()<1){
+                System.out.println("You have to decide between oneof the options");
+                continue;
+            }
+            inputs[0] = value;
+            valid = true;
+        }   
+
+        return inputs;
     }
 
     public boolean doAction(String[] inputs) {
