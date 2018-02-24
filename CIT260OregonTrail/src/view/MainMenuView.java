@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Culpa De Felipe
+ * @author Felipe P.
  */
 public class MainMenuView {
 
@@ -70,9 +70,6 @@ public class MainMenuView {
             case "3":  
                 this.getHelp();
                 break;
-            case "4":  
-                return true;
-                    
             default: System.out.println("Invalid menu item.");
                      break;
     }
@@ -107,10 +104,9 @@ public class MainMenuView {
         
         while(!valid){
             System.out.println("Pick a Menu Option"
-                    + "\n1. Travel The Trail"
-                    + "\n2. Learn about the Trail"
-                    + "\n3. See the Oregon Top Ten"
-                    + "\n4. Choose Management Options"
+                    + "\n1. Start New Game"
+                    + "\n2. Restart Game"
+                    + "\n3. Get Help"
                     + "\nQ. Quit" );
             Scanner sc = new Scanner(System.in);
             String value = sc.nextLine();
