@@ -62,11 +62,9 @@ public class HelpMenuView {
             case "Q": return true;
                     
             default:return false;
-            
         }
-        HelpMenuView helpMenuView = new HelpMenuView();
-            helpMenuView.display();
-            return true;
+        
+        return true;
     }
 
     private void frequentlyQuestions() {
