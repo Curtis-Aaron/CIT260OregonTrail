@@ -144,6 +144,8 @@ public class MainMenuView {
 //            startExistingGameView = Create a new StartExistingGameView
 //            startExistingGameView.displayStartExistingGameView();
 //        }
+        RestartGameView restartGameView = new RestartGameView();
+        restartGameView.display();
         
     }
 
