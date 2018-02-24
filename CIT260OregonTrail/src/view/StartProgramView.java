@@ -15,8 +15,8 @@ import model.Player;
  */
 public class StartProgramView {
 
-    public StartProgramView() {
-    }
+        public StartProgramView() {
+        }
     
     public void display(){
 //        displayStartProgramView() {

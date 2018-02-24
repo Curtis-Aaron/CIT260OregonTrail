@@ -45,25 +45,17 @@ public class HelpMenuView {
         
         switch (helpMenuItem){
             case "1": System.out.println("Frequently Questions");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
+                    this.frequentlyQuestions();
                     break;
             case "2": System.out.println("About the game");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
+                    this.aboutTheGame();
                     break;
             case "3": System.out.println("General Information");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
+                    this.generalInformation();
                     break;
             case "4": System.out.println("When to buy");
-                    if (true){
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    }
-                                        break;
+                    this.whenToBuy();
+                    break;
             case "Q": return true;
                     
             default:return false;
@@ -71,7 +63,23 @@ public class HelpMenuView {
         }
         HelpMenuView helpMenuView = new HelpMenuView();
             helpMenuView.display();
-    
+            return true;
+    }
+
+    private void frequentlyQuestions() {
+        System.out.println("xxxxxxxxxxxxxxx");
+    }
+
+    private void aboutTheGame() {
+        System.out.println("xxxxxxxxxxxxxxx");
+    }
+
+    private void generalInformation() {
+        System.out.println("xxxxxxxxxxxxxxx");
+    }
+
+    private void whenToBuy() {
+        System.out.println("xxxxxxxxxxxxxxx");
     }
     
 }
