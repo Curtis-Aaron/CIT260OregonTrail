@@ -5,6 +5,7 @@
  */
 package control;
 
+import java.util.ArrayList;
 import model.Game;
 import model.Items;
 import model.Occupation;
@@ -88,5 +89,43 @@ public class ItemControl {
         return true;
     }
     
-    
+    public static ArrayList<Items> createItems() {
+        ArrayList<Items> itemList = new ArrayList<>();
+        Items singleItem = new Items();
+        singleItem.setName("Oxen");
+        singleItem.setCost((float) 40.00);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Foot");
+        singleItem.setCost((float)0.20);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Clothing");
+        singleItem.setCost(10);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Ammunition");
+        singleItem.setCost(2);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Wheel");
+        singleItem.setCost(10);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Axle");
+        singleItem.setCost(10);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Tongue");
+        singleItem.setCost(10);
+        itemList.add(singleItem);
+        
+        return itemList;
+    }
 }

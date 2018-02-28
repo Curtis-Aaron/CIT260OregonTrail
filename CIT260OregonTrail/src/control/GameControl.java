@@ -6,7 +6,9 @@
 package control;
 
 import cit260oregontrail.CIT260OregonTrail;
+import java.util.ArrayList;
 import model.Game;
+import model.Occupation;
 import model.Player;
 
 /**
@@ -37,9 +39,40 @@ public class GameControl {
         return player;
     }
 
-    public static Game createNewGame(Player player) {
-        System.out.println("*** createGame run ***");
-        return new Game();
+    public static void createNewGame(Player player) {
+        Game game = new Game();
+        game.setPlayer(player);
+        CIT260OregonTrail.setGame(game);
     }
+    
+    public static ArrayList<Occupation> createOccupations(){
+        ArrayList<Occupation> occupationList = new ArrayList<>();
+        Occupation newOccupation = new Occupation();
+        
+        newOccupation.setName("Banker");
+        newOccupation.setMoney(1600);
+        newOccupation.setDescription("Be a banker from Boston");
+        
+        occupationList.add(newOccupation);
+        
+        newOccupation = new Occupation();
+        
+        newOccupation.setName("Carpenter");
+        newOccupation.setMoney(800);
+        newOccupation.setDescription("Be carpenter from Ohio");
+        
+        occupationList.add(newOccupation);
+        
+        newOccupation.setName("Farmer");
+        newOccupation.setMoney(800);
+        newOccupation.setDescription("Be farmer from Illinois");
+        
+        occupationList.add(newOccupation);
+        
+        
+        return occupationList;
+    }
+    
+    
     
 }

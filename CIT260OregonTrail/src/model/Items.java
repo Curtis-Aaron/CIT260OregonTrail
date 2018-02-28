@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Items implements Serializable{
     private String name;
     private int quantity;
-    private int cost;
+    private float cost;
     private Game game;
 
     public Items() {
@@ -37,11 +37,11 @@ public class Items implements Serializable{
         this.quantity = quantity;
     }
 
-    public int getCost() {
+    public float getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(float cost) {
         this.cost = cost;
     }
 
@@ -53,15 +53,13 @@ public class Items implements Serializable{
         this.game = game;
     }
 
-    
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + this.quantity;
-        hash = 83 * hash + this.cost;
-        hash = 83 * hash + Objects.hashCode(this.game);
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + this.quantity;
+        hash = 37 * hash + Float.floatToIntBits(this.cost);
+        hash = 37 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -80,7 +78,7 @@ public class Items implements Serializable{
         if (this.quantity != other.quantity) {
             return false;
         }
-        if (this.cost != other.cost) {
+        if (Float.floatToIntBits(this.cost) != Float.floatToIntBits(other.cost)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -97,6 +95,5 @@ public class Items implements Serializable{
         return "Items{" + "name=" + name + ", quantity=" + quantity + ", cost=" + cost + ", game=" + game + '}';
     }
 
-    
     
 }

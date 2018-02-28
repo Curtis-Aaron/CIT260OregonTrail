@@ -103,7 +103,7 @@ public class MainMenuView {
         
         while(!valid){
             System.out.println("Pick a Menu Option"
-                            + "\n1. Start New Game"
+                            + "\n1. Travel the trail"
                             + "\n2. Restart Game"
                             + "\n3. Get Help"
                             + "\nQ. Quit" );
@@ -133,8 +133,8 @@ public class MainMenuView {
         
         GameControl.createNewGame(CIT260OregonTrail.getPlayer());
         
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        ChooseOcupationView occupationView = new ChooseOcupationView();
+        occupationView.display();
     }
     
     private void restartGame() {
