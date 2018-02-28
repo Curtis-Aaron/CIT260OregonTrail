@@ -43,12 +43,10 @@ public class GameMenuView {
             System.out.println("\n\n Pick a Menu OPTION"
                         + "\n1. Continue on trail"
                         + "\n2. Check Supplies"
-                        + "\n3. Look at Map" 
+                        + "\n3. Display the Map" 
                         + "\n4. Change Pace"
-                        + "\n5. Food Rations"
-                        + "\n6. Stop to Rest"
-                        + "\n7. Attempt to trade"
-                        + "\n8. Hunt for food");
+                        + "\n5. Change Food Rations"
+                        + "\n6. Stop to Rest");
 
             java.util.Scanner sc = new java.util.Scanner(System.in);
             String value = sc.nextLine();
@@ -74,22 +72,16 @@ public class GameMenuView {
                 this.checkSupplies();
                 break;
             case "3":  
-                this.lookAtMap();
+                this.displayTheMap();
                 break;
             case "4":  
                 this.changePace();
                 break;
             case "5":  
-                this.foodRations();
+                this.changeFoodRations();
                 break;
             case "6":  
                 this.stopToRest();
-                break;
-            case "7":  
-                this.attemptToTrade();
-                break;
-            case "8":  
-                this.huntForFood();
                 break;
             default: System.out.println("Invalid menu item.");
                      break;
@@ -105,15 +97,16 @@ public class GameMenuView {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void lookAtMap() {
+    private void displayTheMap() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void changePace() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChangePaceView changePaceView = new ChangePaceView();
+        changePaceView.display();
     }
 
-    private void foodRations() {
+    private void changeFoodRations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -121,11 +114,5 @@ public class GameMenuView {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void attemptToTrade() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void huntForFood() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
