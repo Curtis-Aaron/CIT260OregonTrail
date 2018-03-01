@@ -5,6 +5,11 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import control.TravelConditionControl;
+import java.util.Calendar;
+import model.Game;
+
 /**
  *
  * @author bould
@@ -57,16 +62,23 @@ class StopToRestView {
     }
     
     private boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        int i = 0;
-        While(i < this.getInputs()){
-        String[] i;
-//      I want to create this loop to add one day to the setDate() method. I have to go but will be back aroun 915 columbia time.        
-        i++;
-        }
         
+        
+        inputs[0] = inputs[0].trim();
+        int x = Integer.getInteger(inputs[0]);
+        
+        TravelConditionControl travelConditionControl = new TravelConditionControl();
+        
+        travelConditionControl.changeDate(x);
+
+// For my formula please view the Game class in the model layer. As I was coding I realized
+// there was a method for changing the date in the Game class.  The code was not correctly made.
+// I pasted my equation code to that method and called on it here. 
+   
+        return true;
     }
     private void displayNextView() {
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
-}
+    }
+}   

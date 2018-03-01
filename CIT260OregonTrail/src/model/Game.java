@@ -8,6 +8,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,7 @@ public class Game implements Serializable{
     private int numberOfPeople;
     private int pace;
     private int foodRations;
+    private Date date;
     private Player player;
     private ArrayList<Items> items;
     private WagonPartyMembers[] partyMembers;
@@ -60,6 +62,14 @@ public class Game implements Serializable{
 
     public void setFoodRations(int foodRations) {
         this.foodRations = foodRations;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Player getPlayer() {
@@ -112,17 +122,18 @@ public class Game implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + (int) (this.score ^ (this.score >>> 32));
-        hash = 67 * hash + this.numberOfPeople;
-        hash = 67 * hash + this.pace;
-        hash = 67 * hash + this.foodRations;
-        hash = 67 * hash + Objects.hashCode(this.player);
-        hash = 67 * hash + Objects.hashCode(this.items);
-        hash = 67 * hash + Arrays.deepHashCode(this.partyMembers);
-        hash = 67 * hash + Objects.hashCode(this.map);
-        hash = 67 * hash + Objects.hashCode(this.occupation);
-        hash = 67 * hash + Objects.hashCode(this.checkPoints);
+        int hash = 3;
+        hash = 59 * hash + (int) (this.score ^ (this.score >>> 32));
+        hash = 59 * hash + this.numberOfPeople;
+        hash = 59 * hash + this.pace;
+        hash = 59 * hash + this.foodRations;
+        hash = 59 * hash + Objects.hashCode(this.date);
+        hash = 59 * hash + Objects.hashCode(this.player);
+        hash = 59 * hash + Objects.hashCode(this.items);
+        hash = 59 * hash + Arrays.deepHashCode(this.partyMembers);
+        hash = 59 * hash + Objects.hashCode(this.map);
+        hash = 59 * hash + Objects.hashCode(this.occupation);
+        hash = 59 * hash + Objects.hashCode(this.checkPoints);
         return hash;
     }
 
@@ -150,6 +161,9 @@ public class Game implements Serializable{
         if (this.foodRations != other.foodRations) {
             return false;
         }
+        if (!Objects.equals(this.date, other.date)) {
+            return false;
+        }
         if (!Objects.equals(this.player, other.player)) {
             return false;
         }
@@ -173,8 +187,10 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "score=" + score + ", numberOfPeople=" + numberOfPeople + ", pace=" + pace + ", foodRations=" + foodRations + ", player=" + player + ", items=" + items + ", partyMembers=" + partyMembers + ", map=" + map + ", occupation=" + occupation + ", checkPoints=" + checkPoints + '}';
+        return "Game{" + "score=" + score + ", numberOfPeople=" + numberOfPeople + ", pace=" + pace + ", foodRations=" + foodRations + ", date=" + date + ", player=" + player + ", items=" + items + ", partyMembers=" + partyMembers + ", map=" + map + ", occupation=" + occupation + ", checkPoints=" + checkPoints + '}';
     }
+
+    
 }
 
    

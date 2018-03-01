@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author Ingrid weather date distanceTraveled
  */
 public class TravelConditions {
- 
+    
     private String weather;
     private Date date;
     public int distanceTraveled;

@@ -5,8 +5,10 @@
  */
 package control;
 
+import cit260oregontrail.CIT260OregonTrail;
 import java.util.Calendar;
 import java.util.Date;
+import model.Game;
 import model.TravelConditions;
 
 /**
@@ -14,21 +16,22 @@ import model.TravelConditions;
  * @author 
  */
 public class TravelConditionControl {
-    public boolean changeDate (Date newDate){
-    //  changeDate(newDate): boolean
-    //  BEGIN
-    //      if the year of newDate != 1848 then RETURN FALSE 
-    //      actual date = new date
-    //  END
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(newDate);
-        if(cal.get(Calendar.YEAR) != 1848 ){
-            System.out.println("The year can not be different to 1848");
-            return false;
-        }
-        TravelConditions travelConditions = new TravelConditions();
-        travelConditions.setDate(newDate);
+    public boolean changeDate (int x){
+        Game game = CIT260OregonTrail.getGame();
         
+        
+        Calendar c = Calendar.getInstance();
+        c.setTime(game.getDate());
+//        int i = 0;
+        while(x > 0){
+            
+            c.add(Calendar.DATE, 1);
+           
+//        int i = 0;
+//      I want to create this loop to add one day to the setDate() method. I have to go but will be back aroun 915 columbia time.        
+            x--;
+        }
+        game.setDate(c.getTime());
         return true;
     }
 }
