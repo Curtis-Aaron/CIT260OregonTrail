@@ -5,6 +5,11 @@
  */
 package view;
 
+import control.GameControl;
+import control.MapControl;
+import control.TravelConditionControl;
+import model.CheckPoints;
+
 /**
  *
  * @author user
@@ -90,7 +95,14 @@ public class GameMenuView {
     }
 
     private void continueOnTrail() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Change date in one
+        TravelConditionControl gameTravel = new TravelConditionControl();
+        gameTravel.changeDate(1);
+        //Change position
+        MapControl mapControl = new MapControl();
+        
+        CheckPoints checkPoint = new CheckPoints(); //This needs to be done in when the checkPoints are created in the game.
+        mapControl.moveToNewLocation(checkPoint); 
     }
 
     private void checkSupplies() {

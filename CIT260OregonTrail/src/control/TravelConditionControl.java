@@ -32,6 +32,7 @@ public class TravelConditionControl {
             x--;
         }
         game.setDate(c.getTime());
+        CIT260OregonTrail.setGame(game);
         return true;
     }
 }

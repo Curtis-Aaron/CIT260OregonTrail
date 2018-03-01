@@ -8,7 +8,6 @@ package control;
 import model.CheckPoints;
 import model.Game;
 import model.Map;
-import model.TravelConditions;
 
 /**
  *
