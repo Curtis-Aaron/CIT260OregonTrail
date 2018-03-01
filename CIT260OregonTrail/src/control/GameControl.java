@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import model.Game;
 import model.Occupation;
 import model.Player;
+import model.WagonPartyMembers;
 
 /**
  *
@@ -73,6 +74,15 @@ public class GameControl {
         return occupationList;
     }
     
-    
+    public static ArrayList<WagonPartyMembers> createWagonPartyMember(){
+        ArrayList<WagonPartyMembers> wagonPartyMembersList = new ArrayList<>();
+        WagonPartyMembers newWagonPartyMembers = new WagonPartyMembers();
+               
+        newWagonPartyMembers.setName("Test");
+        
+        wagonPartyMembersList.add(newWagonPartyMembers);
+        
+        return wagonPartyMembersList;
+    }
     
 }

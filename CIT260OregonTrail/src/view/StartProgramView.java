@@ -66,7 +66,7 @@ public class StartProgramView {
 //    RETURN inputs 
         
         String[] inputs = new String[1];
-        System.out.println("\n  Welcome to the experience of your life with The Oregon Trail game! Try taking a journey by" 
+        System.out.println( "\n Welcome to the experience of your life with The Oregon Trail game! Try taking a journey by" 
                           + "\n covered wagon across 2000 miles of plains, rivers, and mountains. Try! On the plains, will" 
                           + "\n you slosh your oxen through mud and water-filled ruts or will you plod through dust six" 
                           + "\n inches deep? How will you cross the rivers? If you have money, you might take a ferry(if" 

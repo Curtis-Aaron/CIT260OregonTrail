@@ -5,11 +5,18 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import control.GameControl;
+import model.Game;
+import model.WagonPartyMembers;
+import java.util.ArrayList;
+
 /**
  *
  * @author user
  */
 public class WagonPartyView {
+
     public void display(){
 //            display() {
 //            endView = false
@@ -37,11 +44,12 @@ public class WagonPartyView {
         boolean valid = false;
         
         while (!valid){
-            System.out.println("\n\n Pick a Menu Option"
-                             + "\n1. Frequently Questions"
-                             + "\n2. About the Game"
-                             + "\n3. General Information"
-                             + "\n4. When to Buy"
+            System.out.println("\n\n What is the name of the first member?"
+                             + "\n1. x"
+                             + "\n2. xx"
+                             + "\n3. xxx"
+                             + "\n4. xxxx"
+                             + "\n5. xxxxx"
                              + "\nQ. Quit");
         
             java.util.Scanner sc = new java.util.Scanner(System.in);
@@ -84,4 +92,8 @@ public class WagonPartyView {
 
         return true;
     }
-}
+    private final int wagonName = 0;
+        ArrayList<WagonPartyMembers> wagonPartyMembersArray =  GameControl.createWagonPartyMember();
+        Game game = CIT260OregonTrail.getGame();
+        
+  }

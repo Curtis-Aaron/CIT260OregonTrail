@@ -5,20 +5,14 @@
  */
 package view;
 
-import cit260oregontrail.CIT260OregonTrail;
-import control.GameControl;
-import java.util.ArrayList;
-import model.Game;
-import model.Occupation;
-
 /**
  *
- * @author user
+ * @author FELIPE
  */
-public class ChooseOcupationView {
+public class ChooseMonthOptionView {
 
-    public ChooseOcupationView() {
-            }
+    public ChooseMonthOptionView() {
+    }
     
     public void display(){
 //            display() {
@@ -42,17 +36,20 @@ public class ChooseOcupationView {
     }
 
     private String[] getInputs() {
-        
         String[] inputs = new String[1];
         boolean valid = false;
         
         while (!valid){
-            System.out.println("\n\n Pick a Menu Option"
-                             + "\n1. Be a banker from Boston"
-                             + "\n2. Be carpenter from Ohio"
-                             + "\n3. Be farmer from Illinois"
-                             + "\n4. Find out the differences betweem them"
-                             + "\nQ. Quit");
+            System.out.println("\n\n <--------|-------->It is 1848. Your  jumping off  place for Oregon <--------|-------->"
+                             + "\n\n <--------|-------->is Independence, Missouri. You must select which<--------|-------->"
+                             + "\n\n <--------|-------->         month to leave Independence.           <--------|-------->"
+                             + "\n1. >MARCH<"
+                             + "\n2. >APRIL<"
+                             + "\n3. >MAY<"
+                             + "\n4. >JUNE<"
+                             + "\n5. >JULY<"
+                             + "\nQ. >QUIT<"
+                             + "\n\n <-------------|-------------><-------------|------------->");
         
             java.util.Scanner sc = new java.util.Scanner(System.in);
             String value = sc.nextLine();
@@ -69,43 +66,33 @@ public class ChooseOcupationView {
         return inputs;
     }
 
-    public boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
+        String item = inputs[0].toUpperCase();
         
-        String helpMenuItem = inputs[0].toUpperCase();
-        
-        switch (helpMenuItem){
+        switch (item){
             case "1": 
-                    this.assignOccupation(0);
+                    /*this.frequentlyQuestions();*/
                     break;
             case "2": 
-                    this.assignOccupation(1);
+                    /*this.aboutTheGame();*/
                     break;
             case "3": 
-                    this.assignOccupation(2);
+                    /*this.generalInformation();*/
+                    break;
+            case "4": 
+                    /*this.whenToBuy();*/
                     break;
             case "Q": 
                 return true;
-            default: System.out.println("Invalid option, check the menu again.");
+            default:
                 return true;
         }
-
         return true;
     }
-
-    private void assignOccupation(int index) {
-        ArrayList<Occupation> occupations =  GameControl.createOccupations();
-        Game game = CIT260OregonTrail.getGame();
-        Occupation occupationSet = occupations.get(index);
-        game.setOccupation(occupationSet);
-        CIT260OregonTrail.setGame(game);
-        
-        this.displayNextView();
-    }
-
+    
     private void displayNextView() {
         MattsGeneralStoreView mattsGeneralStoreView = new MattsGeneralStoreView();
         mattsGeneralStoreView.display();
     }
+
 }
-
-
