@@ -111,7 +111,8 @@ public class GameMenuView {
     }
 
     private void stopToRest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        StopToRestView stopToRestView = new StopToRestView();
+        stopToRestView.display();
     }
 
     
