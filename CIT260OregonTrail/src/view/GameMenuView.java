@@ -55,7 +55,7 @@ public class GameMenuView {
 
             java.util.Scanner sc = new java.util.Scanner(System.in);
             String value = sc.nextLine();
-            value = value.trim();
+                value = value.trim();
 
             if(value.length() < 1){
                 System.out.println("Please select an option.");
@@ -87,6 +87,9 @@ public class GameMenuView {
                 break;
             case "6":  
                 this.stopToRest();
+                break;
+            case "7":
+                this.progressGame();
                 break;
             default: System.out.println("Invalid menu item.");
                      break;
@@ -125,6 +128,10 @@ public class GameMenuView {
     private void stopToRest() {
         StopToRestView stopToRestView = new StopToRestView();
         stopToRestView.display();
+    }
+
+    private void progressGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

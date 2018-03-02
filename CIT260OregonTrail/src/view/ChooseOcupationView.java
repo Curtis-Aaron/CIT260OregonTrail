@@ -103,8 +103,8 @@ public class ChooseOcupationView {
     }
 
     private void displayNextView() {
-        MattsGeneralStoreView mattsGeneralStoreView = new MattsGeneralStoreView();
-        mattsGeneralStoreView.display();
+        ChooseMonthOptionView chooseMonthOptionView = new ChooseMonthOptionView();
+        chooseMonthOptionView.display();
     }
 }
 

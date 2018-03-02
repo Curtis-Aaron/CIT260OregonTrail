@@ -14,6 +14,7 @@ import model.Map;
  * @author Govert Carreño
  */
 public class MapControl {
+
     public boolean moveToNewLocation(CheckPoints checkPoint){
 //        moveToNewLocation(checkPoint): boolean
 //        BEGIN
@@ -92,7 +93,4 @@ public class MapControl {
          return true;
  
     }
-}       
-
-
-
+}

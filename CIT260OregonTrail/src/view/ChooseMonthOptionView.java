@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import java.lang.String;
 
 /**
  *
@@ -58,9 +59,14 @@ public class ChooseMonthOptionView {
             if(value.length() < 1){
                 System.out.println("You have to decide between one of the options");
                 continue;
-            }
-            inputs[0] = value;
-            valid = true;
+                }
+            else if (value = ){
+                    System.out.println("You must type one option");
+                    continue;    
+                }
+                inputs[0] = value;
+                valid = true;
+            
         }   
 
         return inputs;
