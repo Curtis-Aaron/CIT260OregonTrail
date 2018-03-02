@@ -39,7 +39,7 @@ public class GameProgressView {
     }
 
     private String[] getInputs() {
-        String[] inputs = new String[0];
+        String[] inputs = new String[1];
         boolean valid = false;
         
         while(!valid){
@@ -70,15 +70,15 @@ public class GameProgressView {
 
     private boolean doAction(String[] inputs) {
         inputs[0] = inputs[0].trim();
-        MapControl calcGameProgress;
-        calcGameProgress = new MapControl();
+        MapControl mapControl = new MapControl();
+        double x=Double.parseDouble(inputs[0]);
         
-        if (calcGameProgress == null){
+        if (mapControl == null){
             System.out.println("Please, input the distance traveled.");    
             return false;
         }
         
-        System.out.println(calcGameProgress);
+        System.out.println(mapControl.calcGameProgress(x));
         
        
         return true;

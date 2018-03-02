@@ -103,8 +103,8 @@ public class ChooseOcupationView {
     }
 
     private void displayNextView() {
-        ChooseMonthOptionView chooseMonthOptionView = new ChooseMonthOptionView();
-        chooseMonthOptionView.display();
+        GameProgressView gameProgressView = new GameProgressView();
+        gameProgressView.display();
     }
 }
 

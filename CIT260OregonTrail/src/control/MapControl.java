@@ -37,7 +37,7 @@ public class MapControl {
         return true;
 
     }
-    public float calcGameProgress (int distanceTraveled){
+    public double calcGameProgress (double distanceTraveled){
     //   calcGameProgress(distanceTraveled, game): int
     //   BEGIN
     //       IF distanceTraveled is less than zero then display an error message 
@@ -51,7 +51,7 @@ public class MapControl {
     //   percentOfGame = percentOfGame * 100
     //           RETURN percentOfGame
     //   END
-        float percentOfGame;
+        double percentOfGame;
         if (distanceTraveled < 0) {
             System.out.println("The value must not be < 0");
             return -1;
@@ -64,7 +64,7 @@ public class MapControl {
             System.out.println("Distance Traveled is required");
             return -1;        
         }
-        percentOfGame = distanceTraveled / 2000;
+        percentOfGame = distanceTraveled / 2000F;
         percentOfGame = percentOfGame * 100;
         
         return percentOfGame;

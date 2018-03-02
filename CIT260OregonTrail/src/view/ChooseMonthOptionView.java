@@ -55,12 +55,12 @@ public class ChooseMonthOptionView {
             java.util.Scanner sc = new java.util.Scanner(System.in);
             String value = sc.nextLine();
             value = value.trim();
-            
+            char a= value.charAt(0);
             if(value.length() < 1){
                 System.out.println("You have to decide between one of the options");
                 continue;
                 }
-            else if (value = ){
+            else if (Character.isLetter(a)&& a!= 'Q'){
                     System.out.println("You must type one option");
                     continue;    
                 }
