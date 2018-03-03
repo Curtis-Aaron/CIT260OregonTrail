@@ -52,12 +52,12 @@ public class QuietView {
                       //this.startNewGame();
                       break;
                   case "2":  
-                      //this.restartGame();
+                      //this.saveGame();
                       break;
                   case "3":  
-                      //this.getHelp();
+                      //this.Quit();
                       break;
-                  default: System.out.println("Invalid menu item.");
+                  default: System.out.println("Save Game.");
                            break;
           }
               return false;
