@@ -11,6 +11,65 @@ package view;
  */
 public class QuietView {
     
+    public QuietView(){
+        
+    }
+      public void display(){
+//            display() {
+//            endView = false
+//           DO
+//            inputs = getInputs()
+//            if (no input first input is Q
+//            RETURN
+//            endView = doAction(inputs)
+//            WHILE endView != true
+//            }
+            boolean endOfView = false;
+            do{
+                String[] inputs = this.getInputs();
+                if(inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) 
+                    return;
+
+                endOfView = doAction(inputs);
+            }
+            while(!endOfView);
+    
+  public boolean doAction(String[] inputs) {
+        
+//                doAction(inputs): boolean {
+//                  menuItem = first element in inputs array
+//                  convert menuItem to upper case
+//                  SWITCH menuItem
+//                      “N”: startNewGame()
+//                      “R”: restartGame()
+//                      “H”: getHelp()
+//                      “E”: RETURN true
+//                      DEFAULT: DISPLAY “Invalid menu item.”
+//                   ENDSWITCH
+//                   RETURN false
+//                }
+//  MainMenuView mainMenuView = new MainMenuView();
+//        mainMenuView.display();
+//              System.out.println("**** MainMenuView goAction method Run ***");
+//              return true;
+
+        String menuItem = inputs[0].toUpperCase();
+        switch (menuItem) {
+            case "1":  
+                this.startNewGame();
+                break;
+            case "2":  
+                this.restartGame();
+                break;
+            case "3":  
+                this.getHelp();
+                break;
+            default: System.out.println("Invalid menu item.");
+                     break;
+    }
+        return false;
+}
+    
 }
 private string [] getInputs (){
     String[] inputs = new String[1];
