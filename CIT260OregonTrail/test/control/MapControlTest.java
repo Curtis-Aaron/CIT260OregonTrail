@@ -54,7 +54,7 @@ public class MapControlTest {
         int distanceTraveled = 55;
         MapControl instance = new MapControl();
         float expResult = 2.75F;
-        float result = instance.calcGameProgress(distanceTraveled);
+        double result = instance.calcGameProgress(distanceTraveled);
         assertEquals(expResult, result, 2.75);
 
         System.out.println("----------------------------------");
