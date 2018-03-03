@@ -34,7 +34,6 @@ public class ItemControl {
            return false;
            
        }
-        //doesn't an if statement automatically return false if the statements do not verify as true?
         Items item = new Items();        
         item.setQuantity(quantity);
         
