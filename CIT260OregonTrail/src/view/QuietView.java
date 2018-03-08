@@ -40,13 +40,6 @@ public class QuietView {
       //                  menuItem = first element in inputs array
       //                  convert menuItem to upper case
       //                  SWITCH menuItem
-      //                      “N”: startNewGame()
-      //                      “R”: restartGame()
-      //                      “H”: getHelp()
-      //                      “E”: RETURN true
-      //                      DEFAULT: DISPLAY “Invalid menu item.”
-      //                   ENDSWITCH
-      //                   RETURN false
       //                }
       //  MainMenuView mainMenuView = new MainMenuView();
       //        mainMenuView.display();
@@ -59,12 +52,12 @@ public class QuietView {
                       //this.startNewGame();
                       break;
                   case "2":  
-                      //this.restartGame();
+                      //this.saveGame();
                       break;
                   case "3":  
-                      //this.getHelp();
+                      //this.Quit();
                       break;
-                  default: System.out.println("Invalid menu item.");
+                  default: System.out.println("Save Game.");
                            break;
           }
               return false;
