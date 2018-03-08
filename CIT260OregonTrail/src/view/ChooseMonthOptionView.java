@@ -10,70 +10,24 @@ import java.lang.String;
  *
  * @author FELIPE
  */
-public class ChooseMonthOptionView {
+public class ChooseMonthOptionView extends Views{
 
     public ChooseMonthOptionView() {
-    }
-    
-    public void display(){
-//            display() {
-//            endView = false
-//           DO
-//            inputs = getInputs()
-//            if (no input first input is Q
-//            RETURN
-//            endView = doAction(inputs)
-//            WHILE endView != true
-//            }
-            boolean endOfView = false;
-            do{
-                String[] inputs = this.getInputs();
-                if(inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) 
-                    return;
-
-                endOfView = doAction(inputs);
-            }
-            while(!endOfView);
+        super("\n\n <--------|-------->It is 1848. Your  jumping off  place for Oregon <--------|-------->"
+            + "\n\n <--------|-------->is Independence, Missouri. You must select which<--------|-------->"
+            + "\n\n <--------|-------->         month to leave Independence.           <--------|-------->"
+            + "\n1. >MARCH<"
+            + "\n2. >APRIL<"
+            + "\n3. >MAY<"
+            + "\n4. >JUNE<"
+            + "\n5. >JULY<"
+            + "\nQ. >QUIT<"
+            + "\n\n <-------------|-------------><-------------|------------->");
     }
 
-    private String[] getInputs() {
-        String[] inputs = new String[1];
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n\n <--------|-------->It is 1848. Your  jumping off  place for Oregon <--------|-------->"
-                             + "\n\n <--------|-------->is Independence, Missouri. You must select which<--------|-------->"
-                             + "\n\n <--------|-------->         month to leave Independence.           <--------|-------->"
-                             + "\n1. >MARCH<"
-                             + "\n2. >APRIL<"
-                             + "\n3. >MAY<"
-                             + "\n4. >JUNE<"
-                             + "\n5. >JULY<"
-                             + "\nQ. >QUIT<"
-                             + "\n\n <-------------|-------------><-------------|------------->");
-        
-            java.util.Scanner sc = new java.util.Scanner(System.in);
-            String value = sc.nextLine();
-            value = value.trim();
-            char a= value.charAt(0);
-            if(value.length() < 1){
-                System.out.println("You have to decide between one of the options");
-                continue;
-                }
-            else if (Character.isLetter(a)&& a!= 'Q'){
-                    System.out.println("You must type one option");
-                    continue;    
-                }
-                inputs[0] = value;
-                valid = true;
-            
-        }   
-
-        return inputs;
-    }
-
-    private boolean doAction(String[] inputs) {
-        String item = inputs[0].toUpperCase();
+    @Override
+    public boolean doAction(String inputs) {
+        String item = inputs.toUpperCase();
         
         switch (item){
             case "1": 
@@ -96,7 +50,7 @@ public class ChooseMonthOptionView {
         return true;
     }
     
-    private void displayNextView() {
+    public void displayNextView() {
         MattsGeneralStoreView mattsGeneralStoreView = new MattsGeneralStoreView();
         mattsGeneralStoreView.display();
     }

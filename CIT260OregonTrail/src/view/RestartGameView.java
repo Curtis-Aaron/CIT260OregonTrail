@@ -9,41 +9,21 @@ package view;
  *
  * @author user
  */
-public class RestartGameView {
+public class RestartGameView extends Views{
 
     public RestartGameView() {
+        super();
     }
-    public void display(){
-//            display() {
-//            endView = false
-//           DO
-//            inputs = getInputs()
-//            if (no input first input is Q
-//            RETURN
-//            endView = doAction(inputs)
-//            WHILE endView != true
-//            }
-            boolean endOfView = false;
-            do{
-                String[] inputs = this.getInputs();
-                if(inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) 
-                    return;
-
-                endOfView = this.doAction(inputs);
-            }
-            while(!endOfView);
-    }
-
-    private String[] getInputs() {
-        System.out.println("getInputs RestartGameView");
-        String[] prueba = new String[1];
-        prueba[0] = "Que pasa viejo?";
-        return prueba;
-     }
-
-    private boolean doAction(String[] inputs) {
+   
+    @Override
+    public boolean doAction(String inputs) {
         System.out.println("doAction RestartGameView ***");
         return true;
+    }
+
+    @Override
+    public void displayNextView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
