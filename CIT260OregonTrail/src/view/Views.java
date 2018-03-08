@@ -27,7 +27,7 @@ public abstract class Views implements ViewInterface { // **class abstract
                 if(inputs.length() == 0 || inputs.toUpperCase().equals("Q")) 
                     return;
 
-            //    endOfView = doAction(inputs);
+                endOfView = doAction(inputs);
             }while(!endOfView);
     }
     

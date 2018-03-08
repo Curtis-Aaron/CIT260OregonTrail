@@ -62,8 +62,7 @@ public class StartProgramView extends Views{
                           + "\nWe hope you have a lot of fun!" 
                           + "\n=================================================");
         
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
+        this.displayNextView();
             
         return true;
         
@@ -71,8 +70,8 @@ public class StartProgramView extends Views{
 
     @Override
     public void displayNextView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.display();}
 
 
 }
