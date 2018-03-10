@@ -23,7 +23,8 @@ public class GameMenuView extends Views{
             + "\n3. Display the Map" 
             + "\n4. Change Pace"
             + "\n5. Change Food Rations"
-            + "\n6. Stop to Rest");
+            + "\n6. Stop to Rest"
+            + "\n7. Quit Game");
     }
     @Override
     public boolean doAction(String inputs) {
@@ -48,7 +49,7 @@ public class GameMenuView extends Views{
                 this.stopToRest();
                 break;
             case "7":
-                this.progressGame();
+                this.quitGame();
                 break;
             default: System.out.println("Invalid menu item.");
                      break;
@@ -88,15 +89,18 @@ public class GameMenuView extends Views{
         StopToRestView stopToRestView = new StopToRestView();
         stopToRestView.display();
     }
-
-    private void progressGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+ private void quitGame() {
+        QuitView quitView = new QuitView();
+        quitView.display();
     }
-
+    
     @Override
     public void displayNextView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 
     
 }
