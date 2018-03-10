@@ -17,8 +17,7 @@ public class RestartGameView extends Views{
    
     @Override
     public boolean doAction(String inputs) {
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+        System.out.println("doAction RestartGameView ***");
         return true;
     }
 
