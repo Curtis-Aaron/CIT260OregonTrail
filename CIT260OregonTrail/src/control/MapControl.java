@@ -5,6 +5,7 @@
  */
 package control;
 
+import cit260oregontrail.CIT260OregonTrail;
 import model.CheckPoints;
 import model.Game;
 import model.Map;
@@ -92,5 +93,15 @@ public class MapControl {
        
          return true;
  
+    }
+    public static boolean changePace(int pace){
+        if(pace <= 0 || pace > 3) {
+            System.out.println("Invalid pace");
+            return false;
+        }
+        Game game = CIT260OregonTrail.getGame();
+        game.setPace(pace);
+        
+        return true;
     }
 }

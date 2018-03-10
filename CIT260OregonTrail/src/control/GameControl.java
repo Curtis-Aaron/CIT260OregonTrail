@@ -43,6 +43,7 @@ public class GameControl {
     public static void createNewGame(Player player) {
         Game game = new Game();
         game.setPlayer(player);
+        game.setPace(1); //Default pace (see changePaceView for more information)
         CIT260OregonTrail.setGame(game);
     }
     

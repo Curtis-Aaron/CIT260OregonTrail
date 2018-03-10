@@ -16,10 +16,10 @@ public class QuitView extends Views{
     
     public QuitView(){
         super("\n\n The Oregon Trail"
-             + "\n1. 1. Save and Quit"
-             + "\n2. 2. Quit"
-             + "\n3. Q. Cancel "
-             + "\nQ. What is your choice?");
+             + "\n 1. Save and Quit"
+             + "\n 2. Quit"
+             + "\n Q. Cancel "
+             + "\n What is your choice?");
         
     }
     
@@ -46,9 +46,7 @@ public class QuitView extends Views{
                       this.quit();
                       //this.saveGame();
                       break;
-                  case "3":  
-                      this.cancel();
-                      //this.Quit();
+                  case "Q":
                       break;
                   default: System.out.println("Save Game.");
                            break;
@@ -72,9 +70,6 @@ public class QuitView extends Views{
         System.exit(0);
     }
 
-    private void cancel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     
  

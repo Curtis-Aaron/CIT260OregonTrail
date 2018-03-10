@@ -89,7 +89,7 @@ public class MainMenuView extends Views{
 
     @Override
     public void displayNextView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("There is not a new View from Here -> Error!."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

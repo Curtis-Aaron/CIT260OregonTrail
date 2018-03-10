@@ -61,8 +61,8 @@ public class ChooseOcupationView extends Views{
 
     @Override
     public void displayNextView() {
-        GameProgressView gameProgressView = new GameProgressView();
-        gameProgressView.display();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     
