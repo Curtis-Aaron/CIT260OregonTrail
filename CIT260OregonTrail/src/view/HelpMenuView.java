@@ -4,68 +4,25 @@
  * and open the template in the editor.
  */
 package view;
-import java.util.Scanner;
+
 /**
  *
  * @author Culpa De Felipe
  */
-public class HelpMenuView {
+public class HelpMenuView extends Views{
     
     public HelpMenuView() {
+        super("\n\n Pick a Menu Option"
+            + "\n1. Frequently Questions"
+            + "\n2. About the Game"
+            + "\n3. General Information"
+            + "\n4. When to Buy"
+            + "\nQ. Quit");
     }
-
-   public void display(){
-//            display() {
-//            endView = false
-//           DO
-//            inputs = getInputs()
-//            if (no input first input is Q
-//            RETURN
-//            endView = doAction(inputs)
-//            WHILE endView != true
-//            }
-            boolean endOfView = false;
-            do{
-                String[] inputs = this.getInputs();
-                if(inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) 
-                    return;
-
-                endOfView = doAction(inputs);
-            }
-            while(!endOfView);
-    }
-
-    private String[] getInputs() {
+    @Override
+    public boolean doAction(String inputs) {
         
-        String[] inputs = new String[1];
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n\n Pick a Menu Option"
-                             + "\n1. Frequently Questions"
-                             + "\n2. About the Game"
-                             + "\n3. General Information"
-                             + "\n4. When to Buy"
-                             + "\nQ. Quit");
-        
-            Scanner sc = new Scanner(System.in);
-            String value = sc.nextLine();
-            value = value.trim();
-            
-            if(value.length() < 1){
-                System.out.println("You have to decide between one of the options");
-                continue;
-            }
-            inputs[0] = value;
-            valid = true;
-        }   
-
-        return inputs;
-    }
-
-    public boolean doAction(String[] inputs) {
-        
-        String helpMenuItem = inputs[0].toUpperCase();
+        String helpMenuItem = inputs.toUpperCase();
         
         switch (helpMenuItem){
             case "1": 
@@ -103,6 +60,11 @@ public class HelpMenuView {
 
     private void whenToBuy() {
         System.out.println("When to buy");
+    }
+
+    @Override
+    public void displayNextView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
