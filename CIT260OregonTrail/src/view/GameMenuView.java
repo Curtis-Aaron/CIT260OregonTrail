@@ -5,10 +5,11 @@
  */
 package view;
 
-import control.GameControl;
+import cit260oregontrail.CIT260OregonTrail;
 import control.MapControl;
 import control.TravelConditionControl;
 import model.CheckPoints;
+import model.Game;
 
 /**
  *
@@ -73,7 +74,28 @@ public class GameMenuView extends Views{
     }
 
     private void displayTheMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Game game = CIT260OregonTrail.getGame();
+        CheckPoints[][] checkPoints = game.getMap().getCheckPoints();
+        
+        System.out.println("titulo del mapa (Será cambiado por Aaron)");
+        System.out.println(" 1  2  3  4  ");
+        
+        for(int i = 0;i < game.getMap().getRowCount();i++){
+            System.out.println("  ------------");
+            System.out.print(i + 1);
+            for(int j = 0; j < game.getMap().getColumnCount(); j++){
+                System.out.print("|");
+                CheckPoints cp = checkPoints[i][j];
+                if(cp.isVisited()){
+                    System.out.print("XX");
+                }
+                else {
+                    System.out.print("??");
+                }
+            }
+            System.out.println("|");
+        }
+        System.out.println("  ------------");
     }
 
     private void changePace() {

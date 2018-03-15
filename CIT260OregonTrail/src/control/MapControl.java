@@ -70,30 +70,48 @@ public class MapControl {
         
         return percentOfGame;
     }
-    public boolean createMap (int row, int column, Game game){
+    public static Map createMap (int row, int column){
       
 //        Map(rowCount, columnCount): 
-//
 //        BEGIN
 //                IF rowCount = “”  OR columnCount <= 0 THEN RETURN FALSE
-//
 //                IF rowCount = “”  OR columnCount >= 0 && <= 4 THEN RETURN TRUE
-//
 //        END
 
-    //
-      if ((row <= 0 || row >= 5 ) || (column <= 0 || column >= 5 )){
+        if ((row <= 0 || row >= 5 ) || (column <= 0 || column >= 5 )){
             System.out.println("The row or column must not be <= 0");
-            return false;
+            return null;
         }
         Map map = new Map(); 
         map.setColumnCount(column);
         map.setRowCount(row);
-        game.setMap(map);
-       
-         return true;
+        
+        //Assign Locations
+        CheckPoints[][] checkPoints = MapControl.createLocations(row,column);
+        map.setCheckPoints(checkPoints);
+        
+        return map;
  
     }
+    
+    private static CheckPoints[][] createLocations(int rowCount,int columnCount){
+        if(rowCount < 1 || columnCount < 1){
+            System.out.println("Invalid row or column number");
+            return null;
+        }
+        CheckPoints[][] locations = new CheckPoints[rowCount][columnCount];
+        for(int x = 0; x < rowCount; x++){
+            for(int y = 0; y < columnCount; y++){
+                locations[x][y] = new CheckPoints();
+                locations[x][y].setRowCoordinate(x);
+                locations[x][y].setColumnCoordinate(y);
+                locations[x][y].setVisited(false);
+            }
+        }
+        
+        return locations;
+    }
+    
     public static boolean changePace(int pace){
         if(pace <= 0 || pace > 3) {
             System.out.println("Invalid pace");

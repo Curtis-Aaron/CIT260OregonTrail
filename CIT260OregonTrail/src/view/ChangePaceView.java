@@ -5,7 +5,6 @@
  */
 package view;
 
-import control.GameControl;
 import control.MapControl;
 
 /**
@@ -27,15 +26,25 @@ public class ChangePaceView extends Views{
         String menuItem = inputs.toUpperCase();
         menuItem = menuItem.trim();
         
-        char number = menuItem.charAt(0);
-        
-        if(!Character.isDigit(number)){
-            System.out.println("Invalid option");
-            return false;
+        switch(menuItem){
+            case "1":
+                MapControl.changePace(paceList.SLOW.ordinal());
+                break;
+            case "2":
+                MapControl.changePace(paceList.MODERATE.ordinal());
+                break;
+            case "3":
+                MapControl.changePace(paceList.GRUELING.ordinal());
+                break;
+            case "4":
+                System.out.println("Stub");
+                break;
+            default:
+                System.out.println("Invalid option");
+                return false;
         }
-        int pace = Character.getNumericValue(number);
         
-        return MapControl.changePace(pace);
+        return true;
     }
 
     @Override

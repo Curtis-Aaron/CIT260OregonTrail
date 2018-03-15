@@ -8,9 +8,12 @@ package control;
 import cit260oregontrail.CIT260OregonTrail;
 import java.util.ArrayList;
 import model.Game;
+import model.Items;
+import model.Map;
 import model.Occupation;
 import model.Player;
 import model.WagonPartyMembers;
+import view.paceList;
 
 /**
  *
@@ -40,11 +43,24 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static int createNewGame(Player player) {
+        if(player == null) return -1;
         Game game = new Game();
         game.setPlayer(player);
-        game.setPace(1); //Default pace (see changePaceView for more information)
+        
+        //Items creation
+        ArrayList<Items> items = ItemControl.createItems();
+        game.setItems(items);
+        
+        //Map Creation
+        Map map = MapControl.createMap(4,4);
+        game.setMap(map);
+        
+        
+        game.setPace(paceList.MODERATE.ordinal()); 
         CIT260OregonTrail.setGame(game);
+        
+        return 1;
     }
     
     public static ArrayList<Occupation> createOccupations(){
@@ -64,6 +80,8 @@ public class GameControl {
         newOccupation.setDescription("Be carpenter from Ohio");
         
         occupationList.add(newOccupation);
+        
+        newOccupation = new Occupation();
         
         newOccupation.setName("Farmer");
         newOccupation.setMoney(800);

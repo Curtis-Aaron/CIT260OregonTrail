@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class Map implements Serializable{
     private int columnCount;
     private Game game;
     private int position;
+    private CheckPoints[][] checkPoints;
 
     public Map() {
     }
@@ -53,13 +55,22 @@ public class Map implements Serializable{
         this.position = position;
     }
 
+    public CheckPoints[][] getCheckPoints() {
+        return checkPoints;
+    }
+
+    public void setCheckPoints(CheckPoints[][] checkPoints) {
+        this.checkPoints = checkPoints;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + this.rowCount;
-        hash = 83 * hash + this.columnCount;
-        hash = 83 * hash + Objects.hashCode(this.game);
-        hash = 83 * hash + Objects.hashCode(this.position);
+        int hash = 3;
+        hash = 89 * hash + this.rowCount;
+        hash = 89 * hash + this.columnCount;
+        hash = 89 * hash + Objects.hashCode(this.game);
+        hash = 89 * hash + this.position;
+        hash = 89 * hash + Arrays.deepHashCode(this.checkPoints);
         return hash;
     }
 
@@ -81,10 +92,13 @@ public class Map implements Serializable{
         if (this.columnCount != other.columnCount) {
             return false;
         }
+        if (this.position != other.position) {
+            return false;
+        }
         if (!Objects.equals(this.game, other.game)) {
             return false;
         }
-        if (!Objects.equals(this.position, other.position)) {
+        if (!Arrays.deepEquals(this.checkPoints, other.checkPoints)) {
             return false;
         }
         return true;
@@ -92,8 +106,9 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", game=" + game + ", position=" + position + '}';
+        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", game=" + game + ", position=" + position + ", checkPoints=" + checkPoints + '}';
     }
+
     
     
 }

@@ -15,7 +15,8 @@ import java.util.Objects;
 public class CheckPoints implements Serializable{
 
     private String name;
-    private int coordinate;
+    private int rowCoordinate;
+    private int columnCoordinate;
     private boolean visited; 
 
     public CheckPoints() {
@@ -29,12 +30,20 @@ public class CheckPoints implements Serializable{
         this.name = name;
     }
 
-    public int getCoordinate() {
-        return coordinate;
+    public int getRowCoordinate() {
+        return rowCoordinate;
     }
 
-    public void setCoordinate(int coordinate) {
-        this.coordinate = coordinate;
+    public void setRowCoordinate(int rowCoordinate) {
+        this.rowCoordinate = rowCoordinate;
+    }
+
+    public int getColumnCoordinate() {
+        return columnCoordinate;
+    }
+
+    public void setColumnCoordinate(int columnCoordinate) {
+        this.columnCoordinate = columnCoordinate;
     }
 
     public boolean isVisited() {
@@ -47,10 +56,11 @@ public class CheckPoints implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + this.coordinate;
-        hash = 89 * hash + (this.visited ? 1 : 0);
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + this.rowCoordinate;
+        hash = 17 * hash + this.columnCoordinate;
+        hash = 17 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
@@ -66,7 +76,10 @@ public class CheckPoints implements Serializable{
             return false;
         }
         final CheckPoints other = (CheckPoints) obj;
-        if (this.coordinate != other.coordinate) {
+        if (this.rowCoordinate != other.rowCoordinate) {
+            return false;
+        }
+        if (this.columnCoordinate != other.columnCoordinate) {
             return false;
         }
         if (this.visited != other.visited) {
@@ -80,8 +93,10 @@ public class CheckPoints implements Serializable{
 
     @Override
     public String toString() {
-        return "CheckPoints{" + "name=" + name + ", coordinate=" + coordinate + ", visited=" + visited + '}';
+        return "CheckPoints{" + "name=" + name + ", rowCoordinate=" + rowCoordinate + ", columnCoordinate=" + columnCoordinate + ", visited=" + visited + '}';
     }
+
+    
     
 }
 
