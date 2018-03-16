@@ -17,7 +17,8 @@ import view.StartProgramView;
 public class CIT260OregonTrail {
     private static Game game = null;
     private static Player player = null;
-
+    private static Game currentGame = null; // It is used to reference the current Game object anywhere in the program
+    
     public static Player getPlayer() {
         return player;
     }
@@ -33,6 +34,15 @@ public class CIT260OregonTrail {
     public static void setGame(Game game) {
         CIT260OregonTrail.game = game;
     }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        CIT260OregonTrail.currentGame = currentGame;
+    }
+    
     
     public static void main(String[] args) {
         

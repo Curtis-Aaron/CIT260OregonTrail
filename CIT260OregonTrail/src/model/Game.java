@@ -190,6 +190,10 @@ public class Game implements Serializable{
         return "Game{" + "score=" + score + ", numberOfPeople=" + numberOfPeople + ", pace=" + pace + ", foodRations=" + foodRations + ", date=" + date + ", player=" + player + ", items=" + items + ", partyMembers=" + partyMembers + ", map=" + map + ", occupation=" + occupation + ", checkPoints=" + checkPoints + '}';
     }
 
+    public void setWagonPartyMembers(WagonPartyMembers WagonPartyMembersSet) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
 

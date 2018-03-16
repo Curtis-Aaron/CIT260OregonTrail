@@ -10,6 +10,7 @@ import control.GameControl;
 import model.Game;
 import model.WagonPartyMembers;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,13 +18,11 @@ import java.util.ArrayList;
  */
 public class WagonPartyView extends Views{
 
+    Game game = CIT260OregonTrail.getGame();
+    
     public WagonPartyView() {
-        super("\n\n What is the name of the first member?"
-            + "\n1. x"
-            + "\n2. xx"
-            + "\n3. xxx"
-            + "\n4. xxxx"
-            + "\n5. xxxxx"
+        super("\n\n What are the names of your Wagon Party?"
+            + "\n1. Type names"
             + "\nQ. Quit");
     }
 
@@ -34,7 +33,7 @@ public class WagonPartyView extends Views{
         
         switch (helpMenuItem){
             case "1": 
-//                    this.frequentlyQuestions();
+                    this.assignWagonPartyMember();
                     break;
             case "2": 
 //                    this.aboutTheGame();
@@ -55,11 +54,54 @@ public class WagonPartyView extends Views{
     }
     private final int wagonName = 0;
         ArrayList<WagonPartyMembers> wagonPartyMembersArray =  GameControl.createWagonPartyMember();
-        Game game = CIT260OregonTrail.getGame();
+
 
     @Override
     public void displayNextView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+//    private void assignWagonPartyMember(int wagonName) {
+//        ArrayList<WagonPartyMembers> wagonPartyMembersArray = new ArrayList<>();
+//        Game game = CIT260OregonTrail.getGame();
+//        WagonPartyMembers WagonPartyMembersSet = wagonPartyMembersArray.get(wagonName);
+//        game.setWagonPartyMembers(WagonPartyMembersSet);
+//        CIT260OregonTrail.setGame(game);
+//        
+//        this.displayNextView();
+//    }
+    static Scanner inputs = new Scanner(System.in);
+    static ArrayList<String> names = new ArrayList<>();
+        private void assignWagonPartyMember() {
         
+        System.out.println("\n Remember the wagon members are five.\n"
+                          +"\n Please type the names for your wagon.  ");
+        
+        for (int j=1; j < 6; j++){
+            System.out.println(j + ". Wagon member");
+            String members = inputs.next();
+            names.add(members);
+            
+        }
+        ShowArray();
+        
+        System.out.println("Would you like to change a name?");
+        String deleteNames = inputs.next();
+        for (int i=0; i<names.size(); i++){
+            if (names.get(i) == deleteNames){
+                names.remove(deleteNames);
+                break;}
+        }
+        ShowArray();
+    }
+
+    private void ShowArray() {
+        System.out.println("-----------------------------------------------");
+        for (String i:names){
+            for (int j=1; j<6; j++){
+            System.out.println(j + "." + i);
+            }
+        }
+    }
+
+    
   }

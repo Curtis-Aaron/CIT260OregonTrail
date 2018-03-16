@@ -6,7 +6,9 @@
 package control;
 
 import cit260oregontrail.CIT260OregonTrail;
+import static java.lang.System.in;
 import java.util.ArrayList;
+import java.util.Scanner;
 import model.Game;
 import model.Items;
 import model.Map;
@@ -46,7 +48,7 @@ public class GameControl {
     public static int createNewGame(Player player) {
         if(player == null) return -1;
         Game game = new Game();
-        game.setPlayer(player);
+        game.setPlayer(player); // Save player in the game
         
         //Items creation
         ArrayList<Items> items = ItemControl.createItems();
@@ -94,14 +96,14 @@ public class GameControl {
     }
     
     public static ArrayList<WagonPartyMembers> createWagonPartyMember(){
-        ArrayList<WagonPartyMembers> wagonPartyMembersList = new ArrayList<>();
-        WagonPartyMembers newWagonPartyMembers = new WagonPartyMembers();
-               
-        newWagonPartyMembers.setName("Test");
-        
-        wagonPartyMembersList.add(newWagonPartyMembers);
-        
-        return wagonPartyMembersList;
+        ArrayList<WagonPartyMembers> inputs = new ArrayList<>();
+        for (int i=0; i<6; i++){
+            WagonPartyMembers newWagonPartyMembers = new WagonPartyMembers();
+            newWagonPartyMembers.setName("yr");
+
+            inputs.add(newWagonPartyMembers);
+        }
+        return inputs;
     }
     
 }
