@@ -77,39 +77,40 @@ public class WagonPartyView extends Views{
                           +"\n Please type the names for your wagon.  ");
         
         for (int j=1; j < 6; j++){
-                //if (inputs == null ) { Me sale error en las siguientes lineas
-                //System.out.println("You must type the name. It cannot be null");
-                //}
-                //else{    
+            String members = inputs.nextLine();
+            if (!members.equals("") ) { 
                 System.out.println(j + ". Wagon member");
-                String members = inputs.next();
                 names.add(members);
-            //if (inputs === 'String'){ No se como declararlo
-            //    System.out.println("Invalid data. Please try again");
-                
-                    
             }
- 
+            else{ 
+                System.out.println("You must type the name. It cannot be null");
+                j--;
+//                if (!inputs.nextLine().equals("String")){ 
+//                    System.out.println("Invalid data. Please try again");
+//                }    
+            }
+        }
 
-        
         ShowArray();
         
-        System.out.println("Would you like to change a name?");
+        System.out.println("Are all the names well?");
+        System.out.println("Type the number of the one you want to correct");
+        System.out.println("Otherwise type C");
         String deleteNames = inputs.next();
         for (int i=0; i<names.size(); i++){
-            if (names.get(i) == deleteNames){ // No se como poder reconocer el String para borrarlo, con Integer si me sirvio
-                names.remove(deleteNames);
-                break;}
+            if (i ==  (Integer.parseInt(deleteNames) - 1) )
+                names.remove(i);
+            
         }
         ShowArray();
+    
     }
-
     private void ShowArray() {
         System.out.println("-----------------------------------------------");
-        for (String i:names){
-            for (int j=1; j<6; j++){
-            System.out.println(j + "." + i);
-            }
+        int num = 0;
+        for (String i: names){
+            num++;
+            System.out.println(num + ". " + i);
         }
     }
 
