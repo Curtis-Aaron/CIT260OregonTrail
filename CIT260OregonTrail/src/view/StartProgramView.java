@@ -6,6 +6,9 @@
 package view;
 
 import control.GameControl;
+import exceptions.GameControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Player;
 
 /**
@@ -32,7 +35,8 @@ public class StartProgramView extends Views{
     
     @Override
     public boolean doAction(String inputs) {
-//        doAction(inputs): boolean {
+        try {
+            //        doAction(inputs): boolean {
 //            playersName = get the first value in the inputs array
 //            player = savePlayer(playersName)
 //        IF player == null
@@ -48,24 +52,27 @@ public class StartProgramView extends Views{
 //        mainMenuView.displayMainMenuView()
 //        RETURN true
 //        }
-        String playersName = inputs;
-        Player player = GameControl.savePlayer(playersName);
-        
-        if (player == null){
-            System.out.println("Could not create the player."
-                             + "\nEnter a different name.");    
-            return false;
+String playersName = inputs;
+Player player = GameControl.savePlayer(playersName);
+
+if (player == null){
+    System.out.println("Could not create the player."
+            + "\nEnter a different name.");
+    return false;
+}
+
+System.out.println("\n================================================="
+        + "\nWelcome to the game " + playersName
+        + "\nWe hope you have a lot of fun!"
+                + "\n=================================================");
+
+this.displayNextView();
+
+return true;
+        } catch (GameControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        System.out.println("\n=================================================" 
-                          + "\nWelcome to the game " + playersName 
-                          + "\nWe hope you have a lot of fun!" 
-                          + "\n=================================================");
-        
-        this.displayNextView();
-            
         return true;
-        
     }
 
     @Override

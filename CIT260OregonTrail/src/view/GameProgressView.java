@@ -6,7 +6,10 @@
 package view;
 
 import control.MapControl;
+import exceptions.MapControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,18 +30,23 @@ public class GameProgressView extends Views{
     
     @Override
     public boolean doAction(String inputs) {
-        inputs = inputs.trim();
-        MapControl mapControl = new MapControl();
-        double x=Double.parseDouble(inputs);
-        
-        if (mapControl == null){
-            System.out.println("Please, input the distance traveled.");    
-            return false;
+        try {
+            inputs = inputs.trim();
+            MapControl mapControl = new MapControl();
+            double x=Double.parseDouble(inputs);
+            
+            if (mapControl == null){
+                System.out.println("Please, input the distance traveled.");
+                return false;
+            }
+            
+            System.out.println(mapControl.calcGameProgress(x));
+            
+            
+            return true;
+        } catch (MapControlException ex) {
+            Logger.getLogger(GameProgressView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        System.out.println(mapControl.calcGameProgress(x));
-        
-       
         return true;
     }
 

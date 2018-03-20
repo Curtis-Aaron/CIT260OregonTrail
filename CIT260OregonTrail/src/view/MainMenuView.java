@@ -7,6 +7,10 @@ package view;
 
 import cit260oregontrail.CIT260OregonTrail;
 import control.GameControl;
+import exceptions.GameControlException;
+import exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -61,16 +65,24 @@ public class MainMenuView extends Views{
         return false;
 }
     private void startNewGame() {
-//        startNewGame(): void {
+        try {
+            try {
+                //        startNewGame(): void {
 //            Create a new Game
 //            gameMenuView = create a new GameMenuView object
 //            gameMenuView.displayGameMenuView();
 //        }
-        
-        GameControl.createNewGame(CIT260OregonTrail.getPlayer());
-        
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+
+GameControl.createNewGame(CIT260OregonTrail.getPlayer());
+            } catch (MapControlException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+GameMenuView gameMenuView = new GameMenuView();
+gameMenuView.display();
+        } catch (GameControlException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void restartGame() {

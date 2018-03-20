@@ -6,6 +6,8 @@
 package control;
 
 import cit260oregontrail.CIT260OregonTrail;
+import exceptions.GameControlException;
+import exceptions.MapControlException;
 import static java.lang.System.in;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,7 +25,7 @@ import view.paceList;
  */
 public class GameControl {
 
-    public static Player savePlayer(String playersName) {
+    public static Player savePlayer(String playersName) throws GameControlException {
         //savePlayer(name): Player
         //BEGIN
         //    if name is null OR length of name is < 1 THEN
@@ -35,8 +37,8 @@ public class GameControl {
         //    RETURN player
         //END
         if(playersName == null || playersName.length() < 1){
-            System.out.println("The name cannot be blank");
-            return null;
+            throw new GameControlException("The name cannot be blank");
+            
         }
         Player player = new Player();
         player.setName(playersName);
@@ -45,8 +47,10 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player player) {
-        if(player == null) return -1;
+    public static void createNewGame(Player player) throws GameControlException, MapControlException{
+        if(player == null){
+            throw new GameControlException("You must enter a Name." );
+        }
         Game game = new Game();
         game.setPlayer(player); // Save player in the game
         
@@ -62,7 +66,7 @@ public class GameControl {
         game.setPace(paceList.MODERATE.ordinal()); 
         CIT260OregonTrail.setGame(game);
         
-        return 1;
+        
     }
     
     public static ArrayList<Occupation> createOccupations(){

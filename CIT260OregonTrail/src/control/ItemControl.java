@@ -5,6 +5,7 @@
  */
 package control;
 
+import exceptions.ItemControlException;
 import java.util.ArrayList;
 import model.Game;
 import model.Items;
@@ -15,7 +16,7 @@ import model.Occupation;
  * @author bould
  */
 public class ItemControl {
-    public boolean addItemToStock(String name, int quantity){
+    public boolean addItemToStock(String name, int quantity) throws ItemControlException{
 //        addItemToStock(name,quantity): boolean
 //        BEGIN
 //                IF name = “”  OR quantity <= 0 THEN RETURN FALSE
@@ -23,16 +24,15 @@ public class ItemControl {
 //                add the quantity to the quantity variable in the item class
 //                RETURN TRUE
 //        END
-        
+           
         if(quantity <= 0){
-           System.out.println("Invalid name");
-           return false;
+           throw new ItemControlException("Invalid name");
+           
        }
        
        if(name.length() <= 1) {
-           System.out.println("Error: The name must contain at least 2 letters");
-           return false;
-           
+           throw new ItemControlException("Error: The name must contain at least 2 letters");
+                      
        }
         Items item = new Items();        
         item.setQuantity(quantity);
@@ -40,7 +40,8 @@ public class ItemControl {
         return true;
     }
     
-    public boolean useResource(Items item,int quantity){
+            
+    public boolean useResource(Items item,int quantity) throws ItemControlException{
 //        useResource(item,quantity)
 //        BEGIN
 //                IF quantity <= 0 THEN PRINT “invalid quantity” RETURN FALSE
@@ -51,12 +52,12 @@ public class ItemControl {
 //
 //        END
         if(quantity <= 0) {
-            System.out.println("Invalid quantity");
-            return false;
+            throw new ItemControlException("Invalid quantity");
+            
         }
         if(item == null){
-            System.out.println("Invalid item");
-            return false;
+            throw new ItemControlException("Invalid item");
+            
         }
         
         item.setQuantity(item.getQuantity() - quantity);
@@ -66,7 +67,7 @@ public class ItemControl {
         
     }
     
-    public boolean debitMoney(float totalAmount){
+    public boolean debitMoney(float totalAmount) throws ItemControlException{
 //                debitMoney(totalAmount): boolean
 //          BEGIN
 //                  totalAmount = quantity * cost
@@ -80,8 +81,8 @@ public class ItemControl {
         
         totalAmount = item.getQuantity() * item.getCost();
         if(totalAmount <= 0){
-            System.out.println("Invalid Amount");
-            return false;
+            throw new ItemControlException("Invalid Amount");
+            
         }else {
             occupation.setMoney(occupation.getMoney()- totalAmount);
         }

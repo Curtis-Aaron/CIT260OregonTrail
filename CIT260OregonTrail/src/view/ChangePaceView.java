@@ -6,6 +6,9 @@
 package view;
 
 import control.MapControl;
+import exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,27 +26,32 @@ public class ChangePaceView extends Views{
     }
     @Override
     public boolean doAction(String inputs) {
-        String menuItem = inputs.toUpperCase();
-        menuItem = menuItem.trim();
-        
-        switch(menuItem){
-            case "1":
-                MapControl.changePace(paceList.SLOW.ordinal());
-                break;
-            case "2":
-                MapControl.changePace(paceList.MODERATE.ordinal());
-                break;
-            case "3":
-                MapControl.changePace(paceList.GRUELING.ordinal());
-                break;
-            case "4":
-                System.out.println("Stub");
-                break;
-            default:
-                System.out.println("Invalid option");
-                return false;
+        try {
+            String menuItem = inputs.toUpperCase();
+            menuItem = menuItem.trim();
+            
+            switch(menuItem){
+                case "1":
+                    MapControl.changePace(paceList.SLOW.ordinal());
+                    break;
+                case "2":
+                    MapControl.changePace(paceList.MODERATE.ordinal());
+                    break;
+                case "3":
+                    MapControl.changePace(paceList.GRUELING.ordinal());
+                    break;
+                case "4":
+                    System.out.println("Stub");
+                    break;
+                default:
+                    System.out.println("Invalid option");
+                    return false;
+            }
+            
+            return true;
+        } catch (MapControlException ex) {
+            Logger.getLogger(ChangePaceView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return true;
     }
 

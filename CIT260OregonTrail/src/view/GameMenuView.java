@@ -8,7 +8,10 @@ package view;
 import cit260oregontrail.CIT260OregonTrail;
 import control.MapControl;
 import control.TravelConditionControl;
+import exceptions.MapControlException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.CheckPoints;
 import model.Game;
 import model.Items;
@@ -65,14 +68,18 @@ public class GameMenuView extends Views{
     }
 
     private void continueOnTrail() {
-        //Change date in one
-        TravelConditionControl gameTravel = new TravelConditionControl();
-        gameTravel.changeDate(1);
-        //Change position
-        MapControl mapControl = new MapControl();
-        
-        CheckPoints checkPoint = new CheckPoints(); //This needs to be done in when the checkPoints are created in the game.
-        mapControl.moveToNewLocation(checkPoint); 
+        try {
+            //Change date in one
+            TravelConditionControl gameTravel = new TravelConditionControl();
+            gameTravel.changeDate(1);
+            //Change position
+            MapControl mapControl = new MapControl();
+            
+            CheckPoints checkPoint = new CheckPoints(); //This needs to be done in when the checkPoints are created in the game.
+            mapControl.moveToNewLocation(checkPoint);
+        } catch (MapControlException ex) {
+            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void checkSupplies() {
