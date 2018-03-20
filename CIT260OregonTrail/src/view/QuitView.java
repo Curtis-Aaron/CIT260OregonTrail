@@ -5,6 +5,7 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
 import control.GameControl;
 import model.Map;
 
@@ -63,6 +64,7 @@ public class QuitView extends Views{
 
         Map map = new Map();
         map.setPosition(0);
+//        CIT260OregonTrail.setGame(game);
         System.exit(0);
     }
 

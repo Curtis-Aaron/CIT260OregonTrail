@@ -8,8 +8,10 @@ package view;
 import cit260oregontrail.CIT260OregonTrail;
 import control.MapControl;
 import control.TravelConditionControl;
+import java.util.ArrayList;
 import model.CheckPoints;
 import model.Game;
+import model.Items;
 
 /**
  *
@@ -25,6 +27,7 @@ public class GameMenuView extends Views{
             + "\n4. Change Pace"
             + "\n5. Change Food Rations"
             + "\n6. Stop to Rest"
+            + "\n7. Display Rations"
             + "\n7. Quit Game");
     }
     @Override
@@ -50,6 +53,9 @@ public class GameMenuView extends Views{
                 this.stopToRest();
                 break;
             case "7":
+                this.displayItems();
+                break;
+            case "8":
                 this.quitGame();
                 break;
             default: System.out.println("Invalid menu item.");
@@ -120,6 +126,17 @@ public class GameMenuView extends Views{
     @Override
     public void displayNextView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayItems() {
+        ArrayList<Items> itemsList = new ArrayList<>();
+        itemsList = CIT260OregonTrail.getGame().getItems();
+        System.out.println("Your Items:");
+        
+        for(Items item : itemsList){
+            System.out.println(item.getName() + " - " + item.getQuantity());           
+        }
+        
     }
 
    

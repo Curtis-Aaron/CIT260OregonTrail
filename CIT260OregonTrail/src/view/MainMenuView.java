@@ -69,8 +69,8 @@ public class MainMenuView extends Views{
         
         GameControl.createNewGame(CIT260OregonTrail.getPlayer());
         
-        WagonPartyView wagonPartyView = new WagonPartyView();
-        wagonPartyView.display();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
     
     private void restartGame() {
