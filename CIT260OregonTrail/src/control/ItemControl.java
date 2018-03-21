@@ -97,7 +97,7 @@ public class ItemControl {
         itemList.add(singleItem);
         
         singleItem = new Items();
-        singleItem.setName("Foot");
+        singleItem.setName("Food");
         singleItem.setCost((float)0.20);
         itemList.add(singleItem);
         

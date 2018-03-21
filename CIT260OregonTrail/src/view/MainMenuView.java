@@ -65,21 +65,23 @@ public class MainMenuView extends Views{
         return false;
 }
     private void startNewGame() {
+        //        startNewGame(): void {
+        //            Create a new Game
+        //            gameMenuView = create a new GameMenuView object
+        //            gameMenuView.displayGameMenuView();
+        //        }
         try {
             try {
-                //        startNewGame(): void {
-//            Create a new Game
-//            gameMenuView = create a new GameMenuView object
-//            gameMenuView.displayGameMenuView();
-//        }
+                
 
-GameControl.createNewGame(CIT260OregonTrail.getPlayer());
+                GameControl.createNewGame(CIT260OregonTrail.getPlayer());
             } catch (MapControlException ex) {
                 Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-GameMenuView gameMenuView = new GameMenuView();
-gameMenuView.display();
+        ChooseOcupationView chooseOcupationView = new ChooseOcupationView();
+        chooseOcupationView.display();
+        
         } catch (GameControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }

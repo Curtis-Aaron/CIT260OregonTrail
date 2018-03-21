@@ -61,10 +61,9 @@ public class ChooseOcupationView extends Views{
 
     @Override
     public void displayNextView() {
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        MattsGeneralStoreView generalStoreView = new MattsGeneralStoreView();
+        generalStoreView.display();
     }
-
     
 }
 

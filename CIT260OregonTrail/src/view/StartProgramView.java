@@ -78,7 +78,8 @@ return true;
     @Override
     public void displayNextView() {
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();}
+        mainMenuView.display();
+    }
 
 
 }
