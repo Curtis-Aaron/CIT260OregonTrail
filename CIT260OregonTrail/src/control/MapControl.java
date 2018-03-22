@@ -17,26 +17,23 @@ import model.Map;
  */
 public class MapControl {
 
-    public void moveToNewLocation(CheckPoints checkPoint) throws MapControlException{
-//        moveToNewLocation(checkPoint): boolean
-//        BEGIN
-//
-//            IF checkPint is Visited THEN 	
-//            BEGIN
-//                PRINT “The Location has been visited”
-//                RETURN FALSE.
-//            END
-//            checkPoint.visited = true	
-//            RETURN TRUE.
-//
-//        END   
-        if(checkPoint.isVisited()) {
-            throw new MapControlException("The Location has been visited");
-            
+    public static void moveToNewLocation() throws MapControlException{
+        int y;
+        Map map = CIT260OregonTrail.getGame().getMap();
+        if(map == null) throw new MapControlException("Error getting the map");
+        CheckPoints[][] locations = CIT260OregonTrail.getGame().getMap().getCheckPoints();
+        if(locations == null) throw new MapControlException("Error getting the Location List");
+        for(int x = 0; x < map.getRowCount();x++){
+            for(y = 0; y < map.getColumnCount(); y++){
+                if(!locations[x][y].isVisited()){
+                    locations[x][y].setVisited(true);
+                    break;
+                }
+            }
+            if(locations[x][y].isVisited()) break;
         }
         
-        checkPoint.setVisited(true);
-
+        
     }
     public double calcGameProgress (double distanceTraveled) throws MapControlException{
     //   calcGameProgress(distanceTraveled, game): int
@@ -97,7 +94,6 @@ public class MapControl {
     private static CheckPoints[][] createLocations(int rowCount,int columnCount) throws MapControlException{
         if(rowCount < 1 || columnCount < 1){
             throw new MapControlException("Invalid row or column number");
-            
         }
         CheckPoints[][] locations = new CheckPoints[rowCount][columnCount];
         for(int x = 0; x < rowCount; x++){
@@ -115,7 +111,6 @@ public class MapControl {
     public static void changePace(int pace) throws MapControlException{
         if(pace <= 0 || pace > 3) {
             throw new MapControlException("Invalid pace");
-            
         }
         Game game = CIT260OregonTrail.getGame();
         game.setPace(pace);

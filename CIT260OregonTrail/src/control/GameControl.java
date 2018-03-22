@@ -66,7 +66,6 @@ public class GameControl {
         game.setPace(paceList.MODERATE.ordinal()); 
         CIT260OregonTrail.setGame(game);
         
-        
     }
     
     public static ArrayList<Occupation> createOccupations(){

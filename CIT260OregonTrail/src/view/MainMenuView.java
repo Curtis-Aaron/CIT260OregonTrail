@@ -77,8 +77,8 @@ public class MainMenuView extends Views{
                 Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            WagonPartyView wagonPartyView = new WagonPartyView();
-            wagonPartyView.display();
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
 
         } catch (GameControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import model.CheckPoints;
 import model.Game;
 import model.Items;
+import model.Map;
 
 /**
  *
@@ -31,7 +32,7 @@ public class GameMenuView extends Views{
             + "\n5. Change Food Rations"
             + "\n6. Stop to Rest"
             + "\n7. Display Rations"
-            + "\n7. Quit Game");
+            + "\n8. Quit Game");
     }
     @Override
     public boolean doAction(String inputs) {
@@ -70,13 +71,12 @@ public class GameMenuView extends Views{
     private void continueOnTrail() {
         try {
             //Change date in one
-            TravelConditionControl gameTravel = new TravelConditionControl();
-            gameTravel.changeDate(1);
+//            TravelConditionControl gameTravel = new TravelConditionControl();
+//            gameTravel.changeDate(1);
             //Change position
-            MapControl mapControl = new MapControl();
+            MapControl.moveToNewLocation();
+            //this.display();
             
-            CheckPoints checkPoint = new CheckPoints(); //This needs to be done in when the checkPoints are created in the game.
-            mapControl.moveToNewLocation(checkPoint);
         } catch (MapControlException ex) {
             Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
