@@ -72,16 +72,14 @@ public class MainMenuView extends Views{
         //        }
         try {
             try {
-                
-
                 GameControl.createNewGame(CIT260OregonTrail.getPlayer());
             } catch (MapControlException ex) {
                 Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        ChooseOcupationView chooseOcupationView = new ChooseOcupationView();
-        chooseOcupationView.display();
-        
+            WagonPartyView wagonPartyView = new WagonPartyView();
+            wagonPartyView.display();
+
         } catch (GameControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }

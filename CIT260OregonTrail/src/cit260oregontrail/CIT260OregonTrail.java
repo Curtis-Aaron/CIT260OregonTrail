@@ -46,8 +46,15 @@ public class CIT260OregonTrail {
     
     public static void main(String[] args) {
         
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+        try {
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+        }
+        catch (Throwable e){
+            System.out.println(e.getMessage());
+        }
+        
     }
+        
     
 }

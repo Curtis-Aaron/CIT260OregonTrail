@@ -16,7 +16,7 @@ import model.TravelConditions;
  * @author 
  */
 public class TravelConditionControl {
-    public boolean changeDate (int x){
+    public void changeDate (int x){
         Game game = CIT260OregonTrail.getGame();
         
         
@@ -33,6 +33,5 @@ public class TravelConditionControl {
         }
         game.setDate(c.getTime());
         CIT260OregonTrail.setGame(game);
-        return true;
     }
 }

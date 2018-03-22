@@ -17,7 +17,7 @@ import model.Map;
  */
 public class MapControl {
 
-    public boolean moveToNewLocation(CheckPoints checkPoint) throws MapControlException{
+    public void moveToNewLocation(CheckPoints checkPoint) throws MapControlException{
 //        moveToNewLocation(checkPoint): boolean
 //        BEGIN
 //
@@ -36,7 +36,6 @@ public class MapControl {
         }
         
         checkPoint.setVisited(true);
-        return true;
 
     }
     public double calcGameProgress (double distanceTraveled) throws MapControlException{
@@ -113,7 +112,7 @@ public class MapControl {
         return locations;
     }
     
-    public static boolean changePace(int pace) throws MapControlException{
+    public static void changePace(int pace) throws MapControlException{
         if(pace <= 0 || pace > 3) {
             throw new MapControlException("Invalid pace");
             
@@ -121,6 +120,5 @@ public class MapControl {
         Game game = CIT260OregonTrail.getGame();
         game.setPace(pace);
         
-        return true;
     }
 }

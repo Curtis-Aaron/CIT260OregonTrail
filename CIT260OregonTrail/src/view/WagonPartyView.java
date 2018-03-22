@@ -7,6 +7,7 @@ package view;
 
 import cit260oregontrail.CIT260OregonTrail;
 import control.GameControl;
+import exceptions.GameControlException;
 import model.Game;
 import model.WagonPartyMembers;
 import java.util.ArrayList;
@@ -30,26 +31,30 @@ public class WagonPartyView extends Views{
     public boolean doAction(String inputs) {
         
         String helpMenuItem = inputs.toUpperCase();
-        
-        switch (helpMenuItem){
-            case "1": 
-                    this.assignWagonPartyMember();
-                    break;
-            case "2": 
-//                    this.aboutTheGame();
-                    break;
-            case "3": 
-//                    this.generalInformation();
-                    break;
-            case "4": 
-//                    this.whenToBuy();
-                    break;
-            case "Q": 
-                return true;
-            default:
-                return true;
+        try {
+            
+            switch (helpMenuItem){
+                case "1": 
+                        this.assignWagonPartyMember();
+                        break;
+                case "2": 
+    //                    this.aboutTheGame();
+                        break;
+                case "3": 
+    //                    this.generalInformation();
+                        break;
+                case "4": 
+    //                    this.whenToBuy();
+                        break;
+                case "Q": 
+                    return true;
+                default:
+                    return true;
+            }
         }
-
+        catch (GameControlException e){
+            System.out.println(e.getMessage());
+        }
         return true;
     }
     private final int wagonName = 0;
@@ -71,7 +76,7 @@ public class WagonPartyView extends Views{
 //    }
     static Scanner inputs = new Scanner(System.in);
     static ArrayList<String> names = new ArrayList<>();
-        private void assignWagonPartyMember() {
+        private void assignWagonPartyMember() throws GameControlException{
         
         System.out.println("\n Remember the wagon members are five.\n"
                           +"\n Please type the names for your wagon.  ");
@@ -83,8 +88,9 @@ public class WagonPartyView extends Views{
                 names.add(members);
             }
             else{ 
-                System.out.println("You must type the name. It cannot be null");
                 j--;
+                throw new GameControlException("You must type the name. It cannot be null");
+                
 //                if (!inputs.nextLine().equals("String")){ 
 //                    System.out.println("Invalid data. Please try again");
 //                }    
@@ -97,11 +103,16 @@ public class WagonPartyView extends Views{
         System.out.println("Type the number of the one you want to correct");
         System.out.println("Otherwise type C");
         String deleteNames = inputs.next();
-        for (int i=0; i<names.size(); i++){
+        try {
+            for (int i=0; i<names.size(); i++){
             if (i ==  (Integer.parseInt(deleteNames) - 1) )
-                names.remove(i);
-            
+                    names.remove(i);
+            }
         }
+        catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+        }
+        
         ShowArray();
     
     }

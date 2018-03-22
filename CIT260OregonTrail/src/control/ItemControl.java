@@ -41,7 +41,7 @@ public class ItemControl {
     }
     
             
-    public boolean useResource(Items item,int quantity) throws ItemControlException{
+    public void useResource(Items item,int quantity) throws ItemControlException{
 //        useResource(item,quantity)
 //        BEGIN
 //                IF quantity <= 0 THEN PRINT “invalid quantity” RETURN FALSE
@@ -62,12 +62,9 @@ public class ItemControl {
         
         item.setQuantity(item.getQuantity() - quantity);
         
-        return true;
-
-        
-    }
+   }
     
-    public boolean debitMoney(float totalAmount) throws ItemControlException{
+    public void debitMoney(float totalAmount) throws ItemControlException{
 //                debitMoney(totalAmount): boolean
 //          BEGIN
 //                  totalAmount = quantity * cost
@@ -86,7 +83,6 @@ public class ItemControl {
         }else {
             occupation.setMoney(occupation.getMoney()- totalAmount);
         }
-        return true;
     }
     
     public static ArrayList<Items> createItems() {

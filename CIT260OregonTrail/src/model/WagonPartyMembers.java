@@ -16,6 +16,7 @@ public class WagonPartyMembers implements Serializable{
     private String name;
     private String health;
     private Game game;
+    
 
     public WagonPartyMembers() {
     }
