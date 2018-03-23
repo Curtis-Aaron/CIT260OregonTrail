@@ -6,7 +6,11 @@
 package view;
 
 import cit260oregontrail.CIT260OregonTrail;
+import control.ItemControl;
+import exceptions.ItemControlException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Items;
 
 /**
@@ -16,25 +20,19 @@ import model.Items;
 public class MattsGeneralStoreView extends Views{
     private String showMenu;
     
-    private float cOxen = 0;
-    private float cFood = 0;
-    private float cClothing = 0;
-    private float cAmmunition = 0;
-    private float cWWheel = 0;
-    private float cWAxle = 0;
-    private float cWTongue = 0;
+    private float[] itemValue = new float[7];
 
     public MattsGeneralStoreView() {
         displayMessage = "\n******** The Oregon Trail – Matt’s General Store  ********"
             + "\n*     Choose an item to add to your order:               *"
-            + "\n*     1. Oxen                              " + cOxen  + "           *"
-            + "\n*     2. Food                              " + cFood  + "           *"
-            + "\n*     3. Clothing                          " + cClothing + "           *"
-            + "\n*     4. Ammunition                        " + cAmmunition + "           *"
+            + "\n*     1. Oxen                              " + itemValue[0] + "           *"
+            + "\n*     2. Food                              " + itemValue[1] + "           *"
+            + "\n*     3. Clothing                          " + itemValue[2] + "           *"
+            + "\n*     4. Ammunition                        " + itemValue[3] + "           *"
             + "\n*     ** Spare Parts                       $            *"
-            + "\n*        5. Wagon Wheel                       " + cWWheel + "           *"
-            + "\n*        6. Wagon Axle                        " + cWAxle + "           *"
-            + "\n*        7. Wagon Tongue                      " + cWTongue + "           *"
+            + "\n*        5. Wagon Wheel                       " + itemValue[4] + "           *"
+            + "\n*        6. Wagon Axle                        " + itemValue[5] + "           *"
+            + "\n*        7. Wagon Tongue                      " + itemValue[6] + "           *"
             + "\n*               Funds Remaining            $" + CIT260OregonTrail.getGame().getOccupation().getMoney() + "         *"
             + "\n*     What is your choice (C to continue)?               *"
             + "\n**********************************************************";
@@ -82,14 +80,14 @@ public class MattsGeneralStoreView extends Views{
     private void updateMenu(){
         showMenu = "\n******** The Oregon Trail – Matt’s General Store  ********"
             + "\n*     Choose an item to add to your order:               *"
-            + "\n*     1. Oxen                              " + cOxen  + "           *"
-            + "\n*     2. Food                              " + cFood  + "           *"
-            + "\n*     3. Clothing                          " + cClothing + "           *"
-            + "\n*     4. Ammunition                        " + cAmmunition + "           *"
+            + "\n*     1. Oxen                              " + itemValue[0] + "           *"
+            + "\n*     2. Food                              " + itemValue[1] + "           *"
+            + "\n*     3. Clothing                          " + itemValue[2] + "           *"
+            + "\n*     4. Ammunition                        " + itemValue[3] + "           *"
             + "\n*     ** Spare Parts                       $            *"
-            + "\n*        5. Wagon Wheel                       " + cWWheel + "           *"
-            + "\n*        6. Wagon Axle                        " + cWAxle + "           *"
-            + "\n*        7. Wagon Tongue                      " + cWTongue + "           *"
+            + "\n*        5. Wagon Wheel                       " + itemValue[4] + "           *"
+            + "\n*        6. Wagon Axle                        " + itemValue[5] + "           *"
+            + "\n*        7. Wagon Tongue                      " + itemValue[6] + "           *"
             + "\n*               Funds Remaining            $" + CIT260OregonTrail.getGame().getOccupation().getMoney() + "         *"
             + "\n*     What is your choice (C to continue)?               *"
             + "\n**********************************************************";
@@ -97,7 +95,8 @@ public class MattsGeneralStoreView extends Views{
     
     @Override
     public void displayNextView() {
-        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     private void promtQuantity(int index) {
@@ -112,9 +111,20 @@ public class MattsGeneralStoreView extends Views{
 
         String res = this.getInputs();
         res = res.toUpperCase();
+        
         if(res.equals("Q")) {
             this.displayMessage = this.showMenu;
             this.display();
+        }
+        else{
+            try {
+                itemValue[index] = ItemControl.addItemToStock(index, Integer.parseInt(res));
+                this.updateMenu();
+                this.displayMessage = this.showMenu;
+                this.display();
+            } catch (ItemControlException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 

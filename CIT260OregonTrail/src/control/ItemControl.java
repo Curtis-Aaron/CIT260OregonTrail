@@ -5,6 +5,8 @@
  */
 package control;
 
+import cit260oregontrail.CIT260OregonTrail;
+import static cit260oregontrail.CIT260OregonTrail.getGame;
 import exceptions.ItemControlException;
 import java.util.ArrayList;
 import model.Game;
@@ -16,28 +18,26 @@ import model.Occupation;
  * @author bould
  */
 public class ItemControl {
-    public boolean addItemToStock(String name, int quantity) throws ItemControlException{
-//        addItemToStock(name,quantity): boolean
-//        BEGIN
-//                IF name = “”  OR quantity <= 0 THEN RETURN FALSE
-//
-//                add the quantity to the quantity variable in the item class
-//                RETURN TRUE
-//        END
-           
-        if(quantity <= 0){
-           throw new ItemControlException("Invalid name");
-           
-       }
-       
-       if(name.length() <= 1) {
-           throw new ItemControlException("Error: The name must contain at least 2 letters");
-                      
-       }
-        Items item = new Items();        
-        item.setQuantity(quantity);
+    public static float addItemToStock(int index, int quantity) throws ItemControlException{
+        if(index < 0) throw new ItemControlException("Invalid Item");
+        if(quantity <= 0) throw new ItemControlException("Invalid quantity");
+        Game game = CIT260OregonTrail.getGame();
+        ArrayList<Items> itemList = CIT260OregonTrail.getGame().getItems();
+        Items item = itemList.get(index);
+        item.setQuantity(item.getQuantity() + quantity);
         
-        return true;
+        float totalCost = quantity * item.getCost();
+        
+        Occupation occupation = CIT260OregonTrail.getGame().getOccupation();
+        occupation.setMoney(occupation.getMoney() - totalCost);
+        
+        game.setOccupation(occupation);
+        game.setItems(itemList);
+        
+        CIT260OregonTrail.setGame(game);
+        
+        return totalCost;
+        
     }
     
             
