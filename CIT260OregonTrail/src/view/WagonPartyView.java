@@ -5,11 +5,7 @@
  */
 package view;
 
-import cit260oregontrail.CIT260OregonTrail;
-import control.GameControl;
 import exceptions.GameControlException;
-import model.Game;
-import model.WagonPartyMembers;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +15,8 @@ import java.util.Scanner;
  */
 public class WagonPartyView extends Views{
 
-    Game game = CIT260OregonTrail.getGame();
+    private static final Scanner inputs = new Scanner(System.in);
+    private static final ArrayList<String> names = new ArrayList<>();
     
     public WagonPartyView() {
         super("\n\n What are the names of your Wagon Party?"
@@ -35,15 +32,13 @@ public class WagonPartyView extends Views{
             
             switch (helpMenuItem){
                 case "1": 
-                        this.assignWagonPartyMember();
-                        break;
-                case "2": 
-    //                    this.aboutTheGame();
-                        break;
+                    this.assignWagonPartyMember();
+                    break;
                 case "Q": 
                     return true;
                 default:
-                    return true;
+                    System.out.println("Please type a correct option");
+                    break;
             }
         }
         catch (GameControlException e){
@@ -51,26 +46,13 @@ public class WagonPartyView extends Views{
         }
         return true;
     }
-    private final int wagonName = 0;
-        ArrayList<WagonPartyMembers> wagonPartyMembersArray =  GameControl.createWagonPartyMember();
 
+    
+    private void assignWagonPartyMember() throws GameControlException{
 
-//    private void assignWagonPartyMember(int wagonName) {
-//        ArrayList<WagonPartyMembers> wagonPartyMembersArray = new ArrayList<>();
-//        Game game = CIT260OregonTrail.getGame();
-//        WagonPartyMembers WagonPartyMembersSet = wagonPartyMembersArray.get(wagonName);
-//        game.setWagonPartyMembers(WagonPartyMembersSet);
-//        CIT260OregonTrail.setGame(game);
-//        
-//        this.displayNextView();
-//    }
-    static Scanner inputs = new Scanner(System.in);
-    static ArrayList<String> names = new ArrayList<>();
-        private void assignWagonPartyMember() throws GameControlException{
-        
         System.out.println("\n Remember the wagon members are five.\n"
                           +"\n Please type the names for your wagon.  ");
-        
+
         for (int j=1; j < 6; j++){
             String members = inputs.nextLine();
             if (!members.equals("") ) { 
@@ -80,34 +62,12 @@ public class WagonPartyView extends Views{
             else{ 
                 j--;
                 throw new GameControlException("You must type the name. It cannot be null");
-                
-//                if (!inputs.nextLine().equals("String")){ 
-//                    System.out.println("Invalid data. Please try again");
-//                }    
             }
         }
+        this.askForCorrection();
 
-
-        ShowArray();
-        
-        System.out.println("Are all the names well?");
-        System.out.println("Type the number of the one you want to correct");
-        System.out.println("Otherwise type 0");
-        String deleteNames = inputs.next();
-        try {
-            for (int i=0; i<names.size(); i++){
-            if (i ==  (Integer.parseInt(deleteNames) - 1) )
-                    names.remove(i);
-            }
-        }
-        catch (NumberFormatException e){
-            System.out.println(e.getMessage());
-        }
-        
-        ShowArray();
-        
-        }
-    private void ShowArray() {
+    }
+    private void showArray() {
         System.out.println("-----------------------------------------------");
         int num = 0;
         for (String i: names){
@@ -122,5 +82,24 @@ public class WagonPartyView extends Views{
     public void displayNextView() {
         ChooseOcupationView chooseOcupationView = new ChooseOcupationView();
         chooseOcupationView.display();
+    }
+
+    private void askForCorrection() {
+        System.out.println("Are all the names well?");
+        System.out.println("Type the number of the one you want to correct");
+        System.out.println("Otherwise type 0");
+        String deleteNames = inputs.next();
+        try {
+            for (int i=0; i<names.size(); i++){
+                if (i ==  (Integer.parseInt(deleteNames) - 1) )
+                    names.remove(i);
+                    this.assignWagonPartyMember();
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        this.showArray();
     }
   }
