@@ -77,8 +77,8 @@ public class MainMenuView extends Views{
                 Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            ChooseOcupationView chooseOcupationView = new ChooseOcupationView();
-            chooseOcupationView.display();
+            WagonPartyView wagonPartyView = new WagonPartyView();
+            wagonPartyView.display();
 
         } catch (GameControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,7 +101,6 @@ public class MainMenuView extends Views{
 
     @Override
     public void displayNextView() {
-        throw new UnsupportedOperationException("There is not a new View from Here -> Error!."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

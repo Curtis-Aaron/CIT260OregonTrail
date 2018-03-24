@@ -40,12 +40,6 @@ public class WagonPartyView extends Views{
                 case "2": 
     //                    this.aboutTheGame();
                         break;
-                case "3": 
-    //                    this.generalInformation();
-                        break;
-                case "4": 
-    //                    this.whenToBuy();
-                        break;
                 case "Q": 
                     return true;
                 default:
@@ -60,10 +54,6 @@ public class WagonPartyView extends Views{
     private final int wagonName = 0;
         ArrayList<WagonPartyMembers> wagonPartyMembersArray =  GameControl.createWagonPartyMember();
 
-
-    @Override
-    public void displayNextView() {
-    }
 
 //    private void assignWagonPartyMember(int wagonName) {
 //        ArrayList<WagonPartyMembers> wagonPartyMembersArray = new ArrayList<>();
@@ -97,11 +87,12 @@ public class WagonPartyView extends Views{
             }
         }
 
+
         ShowArray();
         
         System.out.println("Are all the names well?");
         System.out.println("Type the number of the one you want to correct");
-        System.out.println("Otherwise type C");
+        System.out.println("Otherwise type 0");
         String deleteNames = inputs.next();
         try {
             for (int i=0; i<names.size(); i++){
@@ -114,8 +105,8 @@ public class WagonPartyView extends Views{
         }
         
         ShowArray();
-    
-    }
+        
+        }
     private void ShowArray() {
         System.out.println("-----------------------------------------------");
         int num = 0;
@@ -123,7 +114,13 @@ public class WagonPartyView extends Views{
             num++;
             System.out.println(num + ". " + i);
         }
+        
+        this.displayNextView();
     }
-
     
+    @Override
+    public void displayNextView() {
+        ChooseOcupationView chooseOcupationView = new ChooseOcupationView();
+        chooseOcupationView.display();
+    }
   }
