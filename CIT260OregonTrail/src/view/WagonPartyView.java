@@ -92,14 +92,13 @@ public class WagonPartyView extends Views{
         try {
             for (int i=0; i<names.size(); i++){
                 if (i ==  (Integer.parseInt(deleteNames) - 1) )
-                    names.remove(i);
-                    this.assignWagonPartyMember();
+                names.remove(i);
+                this.assignWagonPartyMember();
             }
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-
         this.showArray();
     }
   }
