@@ -101,18 +101,14 @@ public class WagonPartyView extends Views{
                 this.showArray();
                 System.out.println("Type the new name");
                 try{
-                    for ( j=1; j < 6; j++){
+                    for ( j=1; j < 3; j++){
                         System.out.println(j + ". new member");
                         String members = inputs.nextLine();
-                        if (!members.equals("") ) { 
-                            names.add(members);
+                        names.add(members);
                         }
-                        else{ 
-                            j--;
-                            throw new GameControlException("You must type the name. It cannot be null");
-                        }
+                    this.showArray();
+                    this.askForCorrection();
                     }
-                }
                 catch (Exception e){
                         System.out.println(e.getMessage());
                 }
