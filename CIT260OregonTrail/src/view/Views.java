@@ -5,6 +5,13 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author FELIPE
@@ -12,6 +19,9 @@ package view;
 public abstract class Views implements ViewInterface { // **class abstract
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = CIT260OregonTrail.getInFile();
+    protected final PrintWriter console = CIT260OregonTrail.getOutFile();
 
     public Views(String displayMessage) {
         this.displayMessage = displayMessage;
@@ -37,17 +47,20 @@ public abstract class Views implements ViewInterface { // **class abstract
         boolean valid = false;
         
         while (!valid){
-            System.out.println(displayMessage);
-        
-            java.util.Scanner sc = new java.util.Scanner(System.in);
-            inputs = sc.nextLine();
-            inputs = inputs.trim();
-            
-            if(inputs.length() < 1){
-                System.out.println("You have to decide between one of the options");
-                continue;
+            try {
+                this.console.println(displayMessage);
+                
+                inputs = this.keyboard.readLine();
+                inputs = inputs.trim();
+                
+                if(inputs.length() < 1){
+                    ErrorView.display(this.getClass().getName(),"You have to decide between one of the options");
+                    continue;
+                }
+                valid = true;
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"Error reading input " + ex.getMessage());
             }
-            valid = true;
         }   
 
         return inputs;

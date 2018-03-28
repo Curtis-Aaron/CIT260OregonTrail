@@ -41,10 +41,10 @@ public class ChangePaceView extends Views{
                     MapControl.changePace(paceList.GRUELING.ordinal());
                     break;
                 case "4":
-                    System.out.println("Stub");
+                    
                     break;
                 default:
-                    System.out.println("Invalid option");
+                    ErrorView.display(this.getClass().getName(),"Invalid option");
                     return false;
             }
             

@@ -5,8 +5,13 @@
  */
 package cit260oregontrail;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import model.Game;
 import model.Player;
+import view.ErrorView;
 import view.StartProgramView;
 
 
@@ -17,7 +22,10 @@ import view.StartProgramView;
 public class CIT260OregonTrail {
     private static Game game = null;
     private static Player player = null;
-    private static Game currentGame = null; // It is used to reference the current Game object anywhere in the program
+
+    private static BufferedReader inFile = null;
+    private static PrintWriter outFile = null;
+    private static PrintWriter logFile = null;
     
     public static Player getPlayer() {
         return player;
@@ -35,23 +43,56 @@ public class CIT260OregonTrail {
         CIT260OregonTrail.game = game;
     }
 
-    public static Game getCurrentGame() {
-        return currentGame;
+    public static BufferedReader getInFile() {
+        return inFile;
     }
 
-    public static void setCurrentGame(Game currentGame) {
-        CIT260OregonTrail.currentGame = currentGame;
+    public static void setInFile(BufferedReader inFile) {
+        CIT260OregonTrail.inFile = inFile;
     }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        CIT260OregonTrail.outFile = outFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        CIT260OregonTrail.logFile = logFile;
+    }
+    
     
     
     public static void main(String[] args) {
-        
         try {
+            CIT260OregonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
+            CIT260OregonTrail.outFile = new PrintWriter(System.out, true);
+            CIT260OregonTrail.logFile = new PrintWriter("logFile.txt"); //Si algo pasa es culpa de Ingrid
+            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
         }
         catch (Throwable e){
-            System.out.println(e.getMessage());
+            ErrorView.display("CIT260OregonTrail",e.getMessage());
+        }
+        finally{
+            try {
+                if(CIT260OregonTrail.inFile != null)
+                CIT260OregonTrail.inFile.close();
+                if(CIT260OregonTrail.outFile != null)
+                CIT260OregonTrail.outFile.close();
+                if(CIT260OregonTrail.logFile != null)
+                CIT260OregonTrail.logFile.close();
+            } catch (IOException ex) {
+                ErrorView.display("CIT260OregonTrail","Error closing files " + ex.getMessage());
+                return;
+            }
         }
         
     }

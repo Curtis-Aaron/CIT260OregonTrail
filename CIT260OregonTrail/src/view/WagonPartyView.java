@@ -6,9 +6,11 @@
 package view;
 
 import exceptions.GameControlException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import jdk.nashorn.internal.ir.CatchNode;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,7 +18,6 @@ import jdk.nashorn.internal.ir.CatchNode;
  */
 public class WagonPartyView extends Views{
 
-    private static final Scanner inputs = new Scanner(System.in);
     private static final ArrayList<String> names = new ArrayList<>();
     
     public WagonPartyView() {
@@ -39,12 +40,12 @@ public class WagonPartyView extends Views{
                 case "Q": 
                     return true;
                 default:
-                    System.out.println("Please type a correct option");
+                    ErrorView.display(this.getClass().getName(),"Please type a correct option");
                     break;
             }
         }
         catch (GameControlException e){
-            System.out.println(e.getMessage());
+            this.console.println(e.getMessage());
         }
         return true;
     }
@@ -52,30 +53,35 @@ public class WagonPartyView extends Views{
     
     private void assignWagonPartyMember() throws GameControlException{
 
-        System.out.println("\n Remember the wagon members are five.\n"
+        this.console.println("\n Remember the wagon members are five.\n"
                           +"\n Please type the names for your wagon.  ");
-        for ( j=1; j < 6; j++){
-            System.out.println(j + ". Wagon member");
-            String members = inputs.nextLine();
-            if (!members.equals("") ) { 
-                names.add(members);
+        try {
+            for ( j=1; j < 6; j++){
+            
+                this.console.println(j + ". Wagon member");
+                String members = this.keyboard.readLine();
+                if (!members.equals("") ) {
+                    names.add(members);
+                }
+                else{
+                    j--;
+                    throw new GameControlException("You must type the name. It cannot be null");
+                }
             }
-            else{ 
-                j--;
-                throw new GameControlException("You must type the name. It cannot be null");
-            }
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
         this.showArray();
         this.askForCorrection();
 
     }
     private void showArray() {
-        System.out.println("----------------------------------------");
+        this.console.println("----------------------------------------");
         int num = 0;
         for (String i: names){
             num++;
-            System.out.println("--->" + num + ". " + i);
-            System.out.println("----------------------------------------");
+            this.console.println("--->" + num + ". " + i);
+            this.console.println("----------------------------------------");
         }
         
     }
@@ -87,38 +93,34 @@ public class WagonPartyView extends Views{
     }
 
     private void askForCorrection() throws GameControlException {
-        System.out.println("Are all the names well?");
-        System.out.println("Type the number of the one you want to correct");
-        System.out.println("Otherwise type R");
-        String deleteNames = inputs.next();
+        this.console.println("Are all the names correct?");
+        this.console.println("Type the number of the one you want to correct");
+        this.console.println("Otherwise type R");
+        try {
+        String deleteNames = this.keyboard.readLine();
                 
-        if (j==6){
-            try {
+            if (j==6){
                 for (int i=0; i<names.size(); i++){
                     if (i ==  (Integer.parseInt(deleteNames) - 1) )
                         names.remove(i);
                 }
                 this.showArray();
-                System.out.println("Type the new name");
-                try{
-                    for ( j=1; j < 3; j++){
-                        System.out.println(j + ". new member");
-                        String members = inputs.nextLine();
-                        names.add(members);
-                        }
-                    this.showArray();
-                    this.askForCorrection();
+                this.console.println("Type the new name");
+                
+                for ( j=1; j < 3; j++){
+                    this.console.println(j + ". new member");
+                    String members = this.keyboard.readLine();
+                    names.add(members);
                     }
-                catch (Exception e){
-                        System.out.println(e.getMessage());
-                }
+                this.showArray();
+                this.askForCorrection();
+
+            } else {
+                this.assignWagonPartyMember();
             }
-            catch (Exception e){
-                System.out.println(e.getMessage());
-            }
-        }
-        else {
-            this.assignWagonPartyMember();
+            
+        }catch (Exception e){
+            ErrorView.display(this.getClass().getName(),e.getMessage());
         }
         
         this.displayNextView();

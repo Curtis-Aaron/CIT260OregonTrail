@@ -36,11 +36,11 @@ public class GameProgressView extends Views{
             double x=Double.parseDouble(inputs);
             
             if (mapControl == null){
-                System.out.println("Please, input the distance traveled.");
+                ErrorView.display(this.getClass().getName(),"Please, input the distance traveled.");
                 return false;
             }
             
-            System.out.println(mapControl.calcGameProgress(x));
+            this.console.println(mapControl.calcGameProgress(x));
             
             
             return true;

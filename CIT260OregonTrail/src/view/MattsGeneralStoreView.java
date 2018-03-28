@@ -123,7 +123,7 @@ public class MattsGeneralStoreView extends Views{
                 this.displayMessage = this.showMenu;
                 this.display();
             } catch (ItemControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
     }

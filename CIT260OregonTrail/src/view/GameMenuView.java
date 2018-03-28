@@ -62,7 +62,8 @@ public class GameMenuView extends Views{
             case "8":
                 this.quitGame();
                 break;
-            default: System.out.println("Invalid menu item.");
+            default: 
+                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
                      break;
     }
         return false;
@@ -78,7 +79,7 @@ public class GameMenuView extends Views{
             //this.display();
             
         } catch (MapControlException ex) {
-            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
     }
 
@@ -90,25 +91,25 @@ public class GameMenuView extends Views{
         Game game = CIT260OregonTrail.getGame();
         CheckPoints[][] checkPoints = game.getMap().getCheckPoints();
         
-        System.out.println("titulo del mapa (Será cambiado por Aaron)");
-        System.out.println(" 1  2  3  4  ");
+        this.console.println("titulo del mapa (Será cambiado por Aaron)");
+        this.console.println(" 1  2  3  4  ");
         
         for(int i = 0;i < game.getMap().getRowCount();i++){
-            System.out.println("  ------------");
-            System.out.print(i + 1);
+            this.console.println("  ------------");
+            this.console.print(i + 1);
             for(int j = 0; j < game.getMap().getColumnCount(); j++){
-                System.out.print("|");
+                this.console.print("|");
                 CheckPoints cp = checkPoints[i][j];
                 if(cp.isVisited()){
-                    System.out.print("XX");
+                    this.console.print("XX");
                 }
                 else {
-                    System.out.print("??");
+                    this.console.print("??");
                 }
             }
-            System.out.println("|");
+            this.console.println("|");
         }
-        System.out.println("  ------------");
+        this.console.println("  ------------");
     }
 
     private void changePace() {
@@ -138,10 +139,10 @@ public class GameMenuView extends Views{
     private void displayItems() {
         ArrayList<Items> itemsList = new ArrayList<>();
         itemsList = CIT260OregonTrail.getGame().getItems();
-        System.out.println("Your Items:");
+        this.console.println("Your Items:");
         
         for(Items item : itemsList){
-            System.out.println(item.getName() + " - " + item.getQuantity());           
+            this.console.println(item.getName() + " - " + item.getQuantity());           
         }
         
     }

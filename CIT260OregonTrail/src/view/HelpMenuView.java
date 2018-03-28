@@ -47,11 +47,11 @@ public class HelpMenuView extends Views{
     }
 
     private void frequentlyQuestions() {
-        System.out.println("Frequently Questions");
+        this.console.println("Frequently Questions");
     }
 
     private void aboutTheGame() {
-        System.out.println("\n Welcome to the experience of your life with The Oregon Trail game! Try taking a journey by" 
+        this.console.println("\n Welcome to the experience of your life with The Oregon Trail game! Try taking a journey by" 
                             + "\n covered wagon across 2000 miles of plains, rivers, and mountains. Try! On the plains, will" 
                             + "\n you slosh your oxen through mud and water-filled ruts or will you plod through dust six" 
                             + "\n inches deep? How will you cross the rivers? If you have money, you might take a ferry(if" 
@@ -67,11 +67,11 @@ public class HelpMenuView extends Views{
     }
 
     private void generalInformation() {
-        System.out.println("General Information");
+        this.console.println("General Information");
     }
 
     private void whenToBuy() {
-        System.out.println("When to buy");
+        this.console.println("When to buy");
     }
 
     @Override

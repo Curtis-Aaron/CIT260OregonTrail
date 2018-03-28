@@ -56,12 +56,12 @@ String playersName = inputs;
 Player player = GameControl.savePlayer(playersName);
 
 if (player == null){
-    System.out.println("Could not create the player."
-            + "\nEnter a different name.");
+    ErrorView.display(this.getClass().getName(),"Could not create the player."
+                                                + "\nEnter a different name.");
     return false;
 }
 
-System.out.println("\n================================================="
+this.console.println("\n================================================="
         + "\nWelcome to the game " + playersName
         + "\nWe hope you have a lot of fun!"
                 + "\n=================================================");

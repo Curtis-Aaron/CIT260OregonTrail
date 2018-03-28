@@ -42,7 +42,8 @@ public class ChooseOcupationView extends Views{
                     break;
             case "Q": 
                 return true;
-            default: System.out.println("Invalid option, check the menu again.");
+            default: 
+                ErrorView.display(this.getClass().getName(),"Invalid option, check the menu again.");
                 return true;
         }
 

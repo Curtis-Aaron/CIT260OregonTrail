@@ -59,7 +59,8 @@ public class MainMenuView extends Views{
             case "3":  
                 this.getHelp();
                 break;
-            default: System.out.println("Invalid menu item.");
+            default: 
+                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
                      break;
     }
         return false;

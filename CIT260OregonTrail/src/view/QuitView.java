@@ -49,7 +49,7 @@ public class QuitView extends Views{
                       break;
                   case "Q":
                       break;
-                  default: System.out.println("Save Game.");
+                  default: this.console.println("Save Game.");
                            break;
           }
               return false;
