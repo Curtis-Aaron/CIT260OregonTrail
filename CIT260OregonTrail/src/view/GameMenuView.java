@@ -32,7 +32,8 @@ public class GameMenuView extends Views{
             + "\n5. Change Food Rations"
             + "\n6. Stop to Rest"
             + "\n7. Display Rations"
-            + "\n8. Quit Game");
+            + "\n8. Quit Game"
+            + "\n9. Save Game");
     }
     @Override
     public boolean doAction(String inputs) {
@@ -61,6 +62,9 @@ public class GameMenuView extends Views{
                 break;
             case "8":
                 this.quitGame();
+                break;
+            case "9":
+                this.saveGame();
                 break;
             default: 
                 ErrorView.display(this.getClass().getName(),"Invalid menu item.");
@@ -126,7 +130,7 @@ public class GameMenuView extends Views{
         stopToRestView.display();
     }
     
- private void quitGame() {
+    private void quitGame() {
         QuitView quitView = new QuitView();
         quitView.display();
     }
@@ -145,6 +149,11 @@ public class GameMenuView extends Views{
             this.console.println(item.getName() + " - " + item.getQuantity());           
         }
         
+    }
+
+    private void saveGame() {
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
     }
 
    

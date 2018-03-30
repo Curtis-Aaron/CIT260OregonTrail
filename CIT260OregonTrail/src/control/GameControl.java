@@ -8,6 +8,9 @@ package control;
 import cit260oregontrail.CIT260OregonTrail;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import model.Game;
 import model.Items;
@@ -43,6 +46,19 @@ public class GameControl {
         CIT260OregonTrail.setPlayer(player);
         
         return player;
+    }
+    
+    public static void saveGame (String filePath, Game game) throws GameControlException, IOException{
+        if((filePath == null || filePath.length() < 1) || game == null){
+            throw new GameControlException("The file is invalid");
+        }
+        try (ObjectOutputStream outGame = new ObjectOutputStream(new FileOutputStream(filePath))){
+            
+            outGame.writeObject(game);
+            
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
 
     public static void createNewGame(Player player) throws GameControlException, MapControlException{
@@ -106,5 +122,6 @@ public class GameControl {
         }
         return inputs;
     }
+
     
 }

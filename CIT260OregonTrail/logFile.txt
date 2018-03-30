@@ -1,3 +1,0 @@
-
-
-view.WagonPartyView - For input string: "r"
