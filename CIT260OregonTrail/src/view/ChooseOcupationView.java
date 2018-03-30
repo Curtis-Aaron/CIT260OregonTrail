@@ -32,19 +32,20 @@ public class ChooseOcupationView extends Views{
         
         switch (helpMenuItem){
             case "1": 
-                    this.assignOccupation(0);
-                    break;
+                this.assignOccupation(0);
+                break;
             case "2": 
-                    this.assignOccupation(1);
-                    break;
+                this.assignOccupation(1);
+                break;
             case "3": 
-                    this.assignOccupation(2);
-                    break;
+                this.assignOccupation(2);
+                break;
             case "Q": 
-                return true;
+                
+                break;
             default: 
                 ErrorView.display(this.getClass().getName(),"Invalid option, check the menu again.");
-                return true;
+                return false;
         }
 
         return true;

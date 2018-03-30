@@ -5,19 +5,31 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import control.GameControl;
+import exceptions.GameControlException;
+import model.Game;
+
 /**
  *
- * @author user
+ * @author Govert
  */
 public class RestartGameView extends Views{
 
     public RestartGameView() {
-        super();
+        super("To restore a game, please type the complete name of your saved game");
     }
    
     @Override
-    public boolean doAction(String inputs) {
-        this.console.println("doAction RestartGameView ***");
+    public boolean doAction(String filePath) {
+        try {
+            GameControl.getNewGame(filePath);
+        } catch (GameControlException e) {
+            ErrorView.display(this.getClass().getName(),e.getMessage());
+            return false;
+        }
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
         return true;
     }
 

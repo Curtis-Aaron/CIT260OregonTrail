@@ -8,10 +8,14 @@ package control;
 import cit260oregontrail.CIT260OregonTrail;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Game;
 import model.Items;
 import model.Map;
@@ -48,12 +52,11 @@ public class GameControl {
         return player;
     }
     
-    public static void saveGame (String filePath, Game game) throws GameControlException, IOException{
+    public static void saveGame (String filePath, Game game) throws GameControlException{
         if((filePath == null || filePath.length() < 1) || game == null){
             throw new GameControlException("The file is invalid");
         }
         try (ObjectOutputStream outGame = new ObjectOutputStream(new FileOutputStream(filePath))){
-            
             outGame.writeObject(game);
             
         } catch (IOException ex) {
@@ -121,6 +124,23 @@ public class GameControl {
             inputs.add(newWagonPartyMembers);
         }
         return inputs;
+    }
+
+    public static Game getNewGame(String filePath) throws GameControlException{
+        Game game = null;
+        
+        if((filePath == null || filePath.length() < 1)){
+            throw new GameControlException("The file is invalid");
+        }
+        try (ObjectInputStream inGame = new ObjectInputStream(new FileInputStream(filePath))){
+            game = (Game) inGame.readObject();
+            CIT260OregonTrail.setGame(game);
+            CIT260OregonTrail.setPlayer(game.getPlayer());
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        
+        return game;
     }
 
     

@@ -7,15 +7,11 @@ package view;
 
 import cit260oregontrail.CIT260OregonTrail;
 import control.MapControl;
-import control.TravelConditionControl;
 import exceptions.MapControlException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.CheckPoints;
 import model.Game;
 import model.Items;
-import model.Map;
 
 /**
  *

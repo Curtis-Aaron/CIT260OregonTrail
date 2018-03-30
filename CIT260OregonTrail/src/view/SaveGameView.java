@@ -14,22 +14,19 @@ import model.Game;
  * @author FELIPE
  */
 public class SaveGameView extends Views{
-    
-    private String [] inputs = new String [1]; 
-    
-    private String[] playerInputs(){
-        displayMessage = "The instructions to save the game are....";
-        String input1 = getInputs("SaveGame");
-        return inputs;
+
+    public SaveGameView() {
+        super("Instruccopns to save the game?");
     }
     
     @Override
-    public boolean doAction(String inputs) {
-        String filePath = getInputs();
+    public boolean doAction(String filePath) {
         Game game = cit260oregontrail.CIT260OregonTrail.getGame();
         try {
-            Game game = GameControl.saveGame(filePath, game);
-        } catch (GameControlException) {
+            GameControl.saveGame(filePath, game);
+            this.console.println("Game saved");
+        } catch (GameControlException e) {
+            ErrorView.display(this.getClass().getName(),e.getMessage());
         }
         return true;
     }
@@ -37,11 +34,7 @@ public class SaveGameView extends Views{
 
     @Override
     public void displayNextView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private String getInputs(String saveGame) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.console.println("Not implemented yet");
     }
     
 }
