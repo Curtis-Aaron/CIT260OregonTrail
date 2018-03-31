@@ -30,7 +30,7 @@ public class GameMenuView extends Views{
             + "\n6. Stop to Rest"
             + "\n7. Display Rations"
             + "\n8. Save Game"
-            + "\n9. Display Items in Stock"
+            + "\n9. Print Items in Stock"
             + "\n10. Quit Game"
             );
     }
