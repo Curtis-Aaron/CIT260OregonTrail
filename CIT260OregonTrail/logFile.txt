@@ -1,0 +1,9 @@
+
+
+view.WagonPartyView - Please type a correct option
+
+view.WagonPartyView - Please type a correct option
+
+view.WagonPartyView - For input string: "r"
+
+view.WagonPartyView - For input string: "r"

@@ -6,6 +6,7 @@
 package view;
 
 import cit260oregontrail.CIT260OregonTrail;
+import control.GameControl;
 import control.MapControl;
 import exceptions.MapControlException;
 import java.util.ArrayList;
@@ -28,8 +29,10 @@ public class GameMenuView extends Views{
             + "\n5. Change Food Rations"
             + "\n6. Stop to Rest"
             + "\n7. Display Rations"
-            + "\n8. Quit Game"
-            + "\n9. Save Game");
+            + "\n8. Save Game"
+            + "\n9. Display Items in Stock"
+            + "\n10. Quit Game"
+            );
     }
     @Override
     public boolean doAction(String inputs) {
@@ -57,10 +60,13 @@ public class GameMenuView extends Views{
                 this.displayItems();
                 break;
             case "8":
-                this.quitGame();
+                this.saveGame();
                 break;
             case "9":
-                this.saveGame();
+                this.displayStock();
+                break;
+            case "10":
+                this.quitGame();
                 break;
             default: 
                 ErrorView.display(this.getClass().getName(),"Invalid menu item.");
@@ -150,6 +156,22 @@ public class GameMenuView extends Views{
     private void saveGame() {
         SaveGameView saveGameView = new SaveGameView();
         saveGameView.display();
+    }
+
+    private void displayStock() {
+        this.console.println("\n\n Enter the file path for file where the game "
+                + "is to be saved");
+        String aux = displayMessage;
+        displayMessage = "";
+        String filePath = this.getInputs();
+        displayMessage = aux;
+        
+        try{
+            GameControl.printStockItems(CIT260OregonTrail.getGame().getItems(), filePath);
+            this.console.println("List saved successfuly");
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), e.getMessage());
+        }
     }
 
    

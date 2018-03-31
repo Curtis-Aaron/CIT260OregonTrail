@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -141,6 +142,26 @@ public class GameControl {
         }
         
         return game;
+    }
+
+    public static void printStockItems(ArrayList<Items> items, String filePath) 
+        throws GameControlException{
+        try(PrintWriter out = new PrintWriter(filePath)){
+            /*ObjectOutputStream output = new ObjectOutputStream(fops);*/
+            
+            out.println("\n\nITEMS'S LIST");
+            out.printf("%n%-20s%-20s", "Name","Quantity");
+            out.printf("%n%-20s%-20s", "------","--------");
+            for(int i = 0; i < items.size();i++){
+                out.printf("%n%-20s%-20s",(i + 1) + ". " + items.get(i).getName()
+                                    ,items.get(i).getQuantity());
+            }
+                
+            out.printf("%n%-20s", " *** END *** ");
+
+        } catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
     }
 
     
