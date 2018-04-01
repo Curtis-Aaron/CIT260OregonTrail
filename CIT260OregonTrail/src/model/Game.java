@@ -25,6 +25,7 @@ public class Game implements Serializable{
     private Player player;
     private ArrayList<Items> items;
     private WagonPartyMembers[] partyMembers;
+    private ArrayList<WagonPartyMembers> wagonPartyMemberses;
     private Map map;
     private Occupation occupation;
     private CheckPoints checkPoints;
@@ -32,6 +33,15 @@ public class Game implements Serializable{
     public Game() {
     }
 
+    public ArrayList<WagonPartyMembers> getWagonPartyMemberses() {
+        return wagonPartyMemberses;
+    }
+
+    public void setWagonPartyMemberses(ArrayList<WagonPartyMembers> wagonPartyMemberses) {
+        this.wagonPartyMemberses = wagonPartyMemberses;
+    }
+
+    
     public long getScore() {
         return score;
     }

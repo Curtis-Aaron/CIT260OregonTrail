@@ -5,12 +5,15 @@
  */
 package view;
 
+import cit260oregontrail.CIT260OregonTrail;
+import control.GameControl;
 import exceptions.GameControlException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.WagonPartyMembers;
 
 /**
  *
@@ -24,6 +27,7 @@ public class WagonPartyView extends Views{
         super("\n To start the game we are going to organize the Wagon Party"
             + "\n What are the names of your Wagon Party?"
             + "\n1. Type names"
+            + "\n2. Display Wagon Party names in a file"
             + "\nQ. Quit");
     }
 
@@ -36,6 +40,9 @@ public class WagonPartyView extends Views{
             switch (helpMenuItem){
                 case "1": 
                     this.assignWagonPartyMember();
+                    break;
+                case "2":
+                    this.displayWagonPartyMember();
                     break;
                 case "Q": 
                     return true;
@@ -125,4 +132,22 @@ public class WagonPartyView extends Views{
         
         this.displayNextView();
     }
-  }
+
+    private void displayWagonPartyMember() {
+          this.console.println("\n\n Enter the file path for file where the game ");
+        String wagonMember = displayMessage;
+        displayMessage = "";
+        String filePath = this.getInputs();
+        displayMessage = wagonMember;
+        
+        try{
+            GameControl.printListWagonMembers(CIT260OregonTrail.getGame().getWagonPartyMemberses(), filePath);
+            this.console.println("List saved successfuly");
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), e.getMessage());
+        }
+    }
+  
+
+}
+    

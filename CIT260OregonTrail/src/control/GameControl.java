@@ -9,6 +9,7 @@ import cit260oregontrail.CIT260OregonTrail;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,6 +18,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jdk.nashorn.internal.ir.CatchNode;
 import model.Game;
 import model.Items;
 import model.Map;
@@ -163,6 +165,22 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
-
     
+    public static void printListWagonMembers 
+        (ArrayList<WagonPartyMembers> wagonPartyNames, String filePath) 
+        throws GameControlException, FileNotFoundException{
+            
+        try(PrintWriter out = new PrintWriter(filePath)){    
+            out.println("\nWAGON PARTY MEMBERS");
+            out.printf("%n%-20s", "NAMES");
+            for(int i = 0; i < wagonPartyNames.size();i++){
+                out.printf("%n%-20s",(i + 1) + ". " + wagonPartyNames.get(i).getName());
+            }
+        }
+        catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        }
 }
+  
+
