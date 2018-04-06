@@ -64,21 +64,20 @@ public class WagonPartyView extends Views{
                           +"\n Please type the names for your wagon.  ");
         try {
             for ( j=1; j < 6; j++){
-            
-                this.console.println(j + ". Wagon member");
-                String members = this.keyboard.readLine();
-                if (!members.equals("") ) {
-                    names.add(members);
-                }
-                else{
-                    j--;
-                    throw new GameControlException("You must type the name. It cannot be null");
-                }
+                    this.console.println(j + ". Wagon member");
+                    String members = this.keyboard.readLine();
+                    if (!members.equals("") ) {
+                        names.add(members);
+                        this.showArray();
+                    }
+                    else{
+                        j--;
+                        throw new GameControlException("You must type the name. It cannot be null");
+                    }
             }
         } catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-        this.showArray();
         this.askForCorrection();
 
     }
@@ -106,7 +105,7 @@ public class WagonPartyView extends Views{
         try {
         String deleteNames = this.keyboard.readLine();
                 
-            if (j==6){
+            if (j>=6){
                 for (int i=0; i<names.size(); i++){
                     if (i ==  (Integer.parseInt(deleteNames) - 1) )
                         names.remove(i);
@@ -114,8 +113,8 @@ public class WagonPartyView extends Views{
                 this.showArray();
                 this.console.println("Type the new name");
                 
-                for ( j=1; j < 3; j++){
-                    this.console.println(j + ". new member");
+                for ( j=0; j < 1; j++){
+                    this.console.println(". new member");
                     String members = this.keyboard.readLine();
                     names.add(members);
                     }
@@ -123,7 +122,7 @@ public class WagonPartyView extends Views{
                 this.askForCorrection();
 
             } else {
-                this.assignWagonPartyMember();
+                this.displayNextView();
             }
             
         }catch (Exception e){
@@ -134,7 +133,7 @@ public class WagonPartyView extends Views{
     }
 
     private void displayWagonPartyMember() {
-          this.console.println("\n\n Enter the file path for file where the game ");
+        this.console.println("\n\n Enter the file path for file where the game ");
         String wagonMember = displayMessage;
         displayMessage = "";
         String filePath = this.getInputs();
