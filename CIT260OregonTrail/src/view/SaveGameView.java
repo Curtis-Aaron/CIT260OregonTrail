@@ -16,7 +16,7 @@ import model.Game;
 public class SaveGameView extends Views{
 
     public SaveGameView() {
-        super("Instruccopns to save the game?");
+        super("Name to save the game?");
     }
     
     @Override

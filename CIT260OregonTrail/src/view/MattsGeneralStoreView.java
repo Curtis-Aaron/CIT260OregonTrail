@@ -28,13 +28,13 @@ public class MattsGeneralStoreView extends Views{
             + "\n*     1. Oxen                              " + itemValue[0] + "           *"
             + "\n*     2. Food                              " + itemValue[1] + "           *"
             + "\n*     3. Clothing                          " + itemValue[2] + "           *"
-            + "\n*     4. Ammunition                        " + itemValue[3] + "           *"
+            + "\n*     4. Box of Ammunition                 " + itemValue[3] + "           *"
             + "\n*     ** Spare Parts                       $            *"
             + "\n*        5. Wagon Wheel                       " + itemValue[4] + "           *"
             + "\n*        6. Wagon Axle                        " + itemValue[5] + "           *"
             + "\n*        7. Wagon Tongue                      " + itemValue[6] + "           *"
             + "\n*               Funds Remaining            $" + CIT260OregonTrail.getGame().getOccupation().getMoney() + "         *"
-            + "\n*     What is your choice (C to continue)?               *"
+            + "\n*     Select the number of the item you want (C to continue)?               *"
             + "\n**********************************************************";
         
     }
@@ -83,7 +83,7 @@ public class MattsGeneralStoreView extends Views{
             + "\n*     1. Oxen                              " + itemValue[0] + "           *"
             + "\n*     2. Food                              " + itemValue[1] + "           *"
             + "\n*     3. Clothing                          " + itemValue[2] + "           *"
-            + "\n*     4. Ammunition                        " + itemValue[3] + "           *"
+            + "\n*     4. Box of Ammunition                 " + itemValue[3] + "           *"
             + "\n*     ** Spare Parts                       $            *"
             + "\n*        5. Wagon Wheel                       " + itemValue[4] + "           *"
             + "\n*        6. Wagon Axle                        " + itemValue[5] + "           *"
@@ -106,7 +106,7 @@ public class MattsGeneralStoreView extends Views{
         this.updateMenu();
         this.displayMessage = this.showMenu
                             + "\n\nEach "+ selectedItem.getName() +" has a cost of $" + selectedItem.getCost() + ", "
-                            + "how much do you want to buy?"
+                            + "How many do you want to buy?"
                             + "\nPres Q to return to Matt's General Store.";
 
         String res = this.getInputs();

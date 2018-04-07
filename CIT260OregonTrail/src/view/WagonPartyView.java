@@ -101,11 +101,11 @@ public class WagonPartyView extends Views{
     private void askForCorrection() throws GameControlException {
         this.console.println("Are all the names correct?");
         this.console.println("Type the number of the one you want to correct");
-        this.console.println("Otherwise type R");
+        this.console.println("Otherwise type 6, and hit Enter");
         try {
         String deleteNames = this.keyboard.readLine();
                 
-            if (j>=6){
+            if (j>6){
                 for (int i=0; i<names.size(); i++){
                     if (i ==  (Integer.parseInt(deleteNames) - 1) )
                         names.remove(i);
@@ -133,7 +133,7 @@ public class WagonPartyView extends Views{
     }
 
     private void displayWagonPartyMember() {
-        this.console.println("\n\n Enter the file path for file where the game ");
+        this.console.println("\n\n Enter the file path for file where the game is saved.");
         String wagonMember = displayMessage;
         displayMessage = "";
         String filePath = this.getInputs();

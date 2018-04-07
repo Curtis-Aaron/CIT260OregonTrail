@@ -28,8 +28,8 @@ public class RestartGameView extends Views{
             ErrorView.display(this.getClass().getName(),e.getMessage());
             return false;
         }
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        WagonPartyView wagonPartyView = new WagonPartyView();
+        wagonPartyView.display();
         return true;
     }
 

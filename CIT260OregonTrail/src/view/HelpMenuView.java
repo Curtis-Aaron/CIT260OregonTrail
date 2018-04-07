@@ -13,7 +13,7 @@ public class HelpMenuView extends Views{
     
     public HelpMenuView() {
         super("\n\n Pick a Menu Option"
-            + "\n1. Frequently Questions"
+            + "\n1. Frequently Asked Questions"
             + "\n2. About the Game"
             + "\n3. General Information"
             + "\n4. When to Buy"
@@ -26,7 +26,7 @@ public class HelpMenuView extends Views{
         
         switch (helpMenuItem){
             case "1": 
-                    this.frequentlyQuestions();
+                    this.frequentlyAskedQuestions();
                     break;
             case "2": 
                     this.aboutTheGame();
@@ -46,8 +46,19 @@ public class HelpMenuView extends Views{
         return true;
     }
 
-    private void frequentlyQuestions() {
-        this.console.println("Frequently Questions");
+    private void frequentlyAskedQuestions() {
+        this.console.println("\n1. How long has this game been around?"
+                            + "\n The game has been around in some version since 1971"
+                            + "\n"
+                            + "\n2. What is different about this version?"
+                            + "\n This version of the game has been put together by a group of programming students"
+                            + "\n from BYU-Idaho, as a class project."
+                            + "\n"
+                            + "\n3. What are some interesting facts about the Game?"
+                            + "\n a) There was a sequel to the game. It was called Yukon Trail."
+                            + "\n b) Oregon Trail is the world's longest running video game franchise."
+                            + "\n c) The game, Oregon Trail, was inducted into the World Video Game Hall of Fame in 2016.");
+        
     }
 
     private void aboutTheGame() {
@@ -71,7 +82,9 @@ public class HelpMenuView extends Views{
     }
 
     private void whenToBuy() {
-        this.console.println("When to buy");
+        this.console.println("\n You may choose to purchase in game at one of THREE moments. 1) You may purchase before you "
+                            + "\n depart on the trail. 2) You may purchase when you arrive at checkpoints throughout the game."
+                            + "\n 3) You may choose to purchase or trade along the trail with other travelers." );
     }
 
     @Override
