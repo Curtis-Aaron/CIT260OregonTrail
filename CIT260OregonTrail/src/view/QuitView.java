@@ -7,7 +7,12 @@ package view;
 
 import cit260oregontrail.CIT260OregonTrail;
 import control.GameControl;
+import exceptions.GameControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Game;
 import model.Map;
+
 
 /**
  *
@@ -36,11 +41,11 @@ public class QuitView extends Views{
       //        mainMenuView.display();
       //              System.out.println("**** MainMenuView goAction method Run ***");
       //              return true;
-
+              String filePath = inputs.toUpperCase();
               String menuItem = inputs.toUpperCase();
               switch (menuItem) {
                   case "1":  
-                      this.SaveAndQuit();
+                      this.SaveAndQuit(filePath);
                       //this.startNewGame();
                       break;
                   case "2": 
@@ -60,11 +65,13 @@ public class QuitView extends Views{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void SaveAndQuit() {
-
-        Map map = new Map();
-        map.setPosition(0);
-//        CIT260OregonTrail.setGame(game);
+    private void SaveAndQuit(String filePath){
+        
+        try {
+            GameControl.saveGame(filePath, CIT260OregonTrail.getGame());
+        } catch (GameControlException ex) {
+            Logger.getLogger(QuitView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }
 
